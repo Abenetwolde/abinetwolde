@@ -39,7 +39,7 @@ const Project = ({ name, images, category, techstack, links }: project) => {
                          spaceBetween={1}
                         loop={true} // Infinite scroll
                         autoplay={{
-                            delay: 5000, // Delay between transitions
+                            delay: 2000, // Delay between transitions
                             disableOnInteraction: false, // Keeps autoplay running after interaction
                         }}
                     >
@@ -61,6 +61,9 @@ const Project = ({ name, images, category, techstack, links }: project) => {
                 </div>
                 {(links.visit.trim() || links.code.trim() || links.video.trim()) &&
                     <div className=" z-50 absolute top-0 scale-x-0 group-hover:scale-100 transition-transform origin-left duration-200 ease-linear bg-gray-800 bg-opacity-60 w-full h-full rounded-lg flex items-center gap-4 justify-center">
+                           <Link href={links.video} target="_blank" className="bg-white text-black p-2 rounded-lg hover:bg-black hover:text-white transition-all">
+                                <FaVideo size={20} />
+                            </Link>
                         {links.visit.trim() &&
                             <Link href={links.visit} target="_blank" className="bg-white text-black p-2 rounded-lg hover:bg-black hover:text-white transition-all">
                                 <BiLinkExternal size={20} />

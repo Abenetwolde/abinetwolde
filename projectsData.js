@@ -1,10 +1,14 @@
 // projectsData.js
 
 // Import images from local assets
-import image1 from '../assets/images/project1-image1.jpg';
-import image2 from '../assets/images/project1-image2.jpg';
-import flutterImage from '../assets/images/flutter-project.jpg';
-import phpImage from '../assets/images/php-project.jpg';
+import image1 from './assets/ecommerce/image1.png';
+import image2 from './assets/ecommerce/image2.png';
+import image3 from './assets/ecommerce/image3.png';
+import image4 from './assets/ecommerce/image4.png';
+import image5 from './assets/ecommerce/image5.png';
+import image6 from './assets/ecommerce/image6.png';
+// import flutterImage from '../assets/images/flutter-project.jpg';
+// import phpImage from '../assets/images/php-project.jpg';
 
 export const projects = {
  main: {
@@ -206,11 +210,11 @@ export const projects = {
       "name": "Project Title",
       "techstack": "HTML5, CSS3, JavaScript, jQuery",
       "category": "MERN Stack",
-      "images": ["https://media.licdn.com/dms/image/v2/D4E22AQEiUjI8Fsn7JA/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1724842521824?e=1732752000&v=beta&t=Uxh-Lt_lA3dP4bai_oDLFEdQO3kUAS7Hf3H7GwWQIiA","https://media.licdn.com/dms/image/v2/D4E22AQHvuxencw_uIQ/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1724842545135?e=1732752000&v=beta&t=QTWSS7QXmmce4TOHfmVz4qwOkAwZAMWSE9XnVGjqV3U"],
+      "images": [image1, image2, image3, image4, image5, image6],
       "links": {
         "code": "https://media.licdn.com/dms/image/v2/D4E22AQHvuxencw_uIQ/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1724842545135?e=1732752000&v=beta&t=QTWSS7QXmmce4TOHfmVz4qwOkAwZAMWSE9XnVGjqV3U",
-        "video": "",
-        "visit": ""
+        "video": "https://media.licdn.com/dms/image/v2/D4E22AQHvuxencw_uIQ/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1724842545135?e=1732752000&v=beta&t=QTWSS7QXmmce4TOHfmVz4qwOkAwZAMWSE9XnVGjqV3U",
+        "visit": "https://media.licdn.com/dms/image/v2/D4E22AQHvuxencw_uIQ/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1724842545135?e=1732752000&v=beta&t=QTWSS7QXmmce4TOHfmVz4qwOkAwZAMWSE9XnVGjqV3U"
       }
     },
     {

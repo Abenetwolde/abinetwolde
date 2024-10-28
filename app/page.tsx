@@ -1,6 +1,7 @@
 import { FaNodeJs } from "react-icons/fa"
 import HomePage from "./HomePage"
-import data from "./../data.json"
+// import data from "./../data.json"
+import {projects} from "./../projectsData.js"
 // import { ref, get } from "firebase/database"
 // import { database } from "@/firebase"
 
@@ -15,12 +16,12 @@ import data from "./../data.json"
 // }
 
 export default async function page() {
-const alldatas:any=data
+const alldatas:any=projects
   // const data = await getData()
 
   return (
     <>
-      {data ?
+      {alldatas ?
         <HomePage data={alldatas} />
         :
         <div className='h-screen w-screen flex flex-col items-center justify-center gap-5 text-violet-600 fixed z-30 bg-gray-100 dark:bg-grey-900'>
