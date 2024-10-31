@@ -207,14 +207,14 @@ export const projects = {
   ],
   projects: [
     {
-      "name": "Project Title",
-      "techstack": "HTML5, CSS3, JavaScript, jQuery",
-      "category": "MERN Stack",
-      "images": [image1, image2, image3, image4, image5, image6],
-      "links": {
-        "code": "https://media.licdn.com/dms/image/v2/D4E22AQHvuxencw_uIQ/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1724842545135?e=1732752000&v=beta&t=QTWSS7QXmmce4TOHfmVz4qwOkAwZAMWSE9XnVGjqV3U",
-        "video": "https://media.licdn.com/dms/image/v2/D4E22AQHvuxencw_uIQ/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1724842545135?e=1732752000&v=beta&t=QTWSS7QXmmce4TOHfmVz4qwOkAwZAMWSE9XnVGjqV3U",
-        "visit": "https://media.licdn.com/dms/image/v2/D4E22AQHvuxencw_uIQ/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1724842545135?e=1732752000&v=beta&t=QTWSS7QXmmce4TOHfmVz4qwOkAwZAMWSE9XnVGjqV3U"
+      name: "Project Title",
+      techstack: "HTML5, CSS3, JavaScript, jQuery",
+      category: "MERN Stack",
+      images: [image1, image2, image3, image4, image5, image6],
+      links: {
+        code: "https://media.licdn.com/dms/image/v2/D4E22AQHvuxencw_uIQ/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1724842545135?e=1732752000&v=beta&t=QTWSS7QXmmce4TOHfmVz4qwOkAwZAMWSE9XnVGjqV3U",
+        video: "https://media.licdn.com/dms/image/v2/D4E22AQHvuxencw_uIQ/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1724842545135?e=1732752000&v=beta&t=QTWSS7QXmmce4TOHfmVz4qwOkAwZAMWSE9XnVGjqV3U",
+      visit: "https://media.licdn.com/dms/image/v2/D4E22AQHvuxencw_uIQ/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1724842545135?e=1732752000&v=beta&t=QTWSS7QXmmce4TOHfmVz4qwOkAwZAMWSE9XnVGjqV3U"
       }
     },
     {
