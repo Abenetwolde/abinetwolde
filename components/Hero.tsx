@@ -21,7 +21,7 @@ const Hero = ({ mainData }: HeroProps) => {
 
             <div className="absolute -z-10 min-h-screen h-full w-full">
                 <Image
-                    src="/herobgc.jpg"
+                    src="/b2.jpg"
                     layout="fill"
                     objectFit="cover"
                     loading='lazy'
@@ -50,10 +50,10 @@ const Hero = ({ mainData }: HeroProps) => {
                                 strings: titles,
                                 autoStart: true,
                                 loop: true,
-                                deleteSpeed: 50,
-                                delay: 50,
-                                wrapperClassName: "text-violet-700 dark:text-violet-600 text-lg md:text-2xl font-medium",
-                                cursorClassName: "text-violet-700 dark:text-violet-600 text-lg md:text-2xl"
+                                deleteSpeed: 15,
+                                delay: 5,
+                                wrapperClassName: "text-pink-700 dark:text-pink-600 text-lg md:text-2xl font-medium",
+                                cursorClassName: "text-pink-700 dark:text-pink-600 text-lg md:text-2xl"
                             }}
                         />
                     </div>
@@ -67,7 +67,7 @@ const Hero = ({ mainData }: HeroProps) => {
                     </a> */}
 
                     <ScrollLink
-                        className="w-fit text-sm md:text-base py-2 px-4 cursor-pointer flex items-center gap-1 rounded-md bg-violet-600 hover:bg-violet-700 dark:bg-violet-700 hover:dark:bg-violet-800 transition-colors group text-white"
+                        className="w-fit text-sm md:text-base py-2 px-4 cursor-pointer flex items-center gap-1 rounded-md bg-pink-600 hover:bg-violet-700 dark:bg-pink-700 hover:dark:bg-pink-800 transition-colors group text-white"
                         to={'about'}
                         offset={-60}
                         smooth={true}

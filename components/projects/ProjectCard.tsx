@@ -9,17 +9,20 @@ import { useInView } from 'react-intersection-observer';
 import { useState } from "react"
 import 'swiper/css';
 import 'swiper/css/autoplay';
-import { Autoplay } from 'swiper/modules';
+import { A11y, Autoplay, EffectCube, Scrollbar } from 'swiper/modules';
 import Tooltip from '@mui/material/Tooltip';
 import Dialog from '@mui/material/Dialog'; // Import Dialog component
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
 import Button from '@mui/material/Button';
-import { Navigation, Pagination } from 'swiper/modules'; 
+import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/autoplay';
+
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 const cardVariants = {
     hidden: { y: 50, opacity: 0 },
     visible: { y: 0, opacity: 1, transition: { duration: 0.6, ease: 'easeInOut' } }
@@ -76,6 +79,7 @@ const Project = ({ name, images, category, techstack, links }: project) => {
                                 <div className="w-full ">
                                     <Image
                                         src={image}
+                                          loading='lazy'
                                         alt={`carousel-image-${index}`}
                                         width={1000}
                                         height={1000}
@@ -99,21 +103,21 @@ const Project = ({ name, images, category, techstack, links }: project) => {
                                 </button>
                             </Tooltip>
                         )}
-                        {links.video.trim() && (
+                        {links?.video?.trim() && (
                             <Tooltip placement='top' title="Watch Video" arrow>
                                 <button onClick={() => handleModalOpen("video")} className="bg-white text-black p-2 rounded-lg hover:bg-black hover:text-white transition-all">
                                     <FaVideo size={20} />
                                 </button>
                             </Tooltip>
                         )}
-                        {links.visit.trim() && (
+                        {links?.visit?.trim() && (
                             <Tooltip placement='top' title="Visit Site" arrow>
                                 <Link href={links.visit} target="_blank" className="bg-white text-black p-2 rounded-lg hover:bg-black hover:text-white transition-all">
                                     <BiLinkExternal size={20} />
                                 </Link>
                             </Tooltip>
                         )}
-                        {links.code.trim() && (
+                        {links?.code?.trim() && (
                             <Tooltip placement='top' title="View Code" arrow>
                                 <Link href={links.code} target="_blank" className="bg-white text-black p-2 rounded-lg hover:bg-black hover:text-white transition-all">
                                     <FaGithub size={20} />
@@ -131,46 +135,140 @@ const Project = ({ name, images, category, techstack, links }: project) => {
             <Dialog PaperProps={{
                 style: {
                     width: '90%',
-                    height: '90%',
+                    height: '100%',
                     maxWidth: 'none',
                 },
             }} open={openModal.photos} onClose={() => handleModalClose("photos")}>
-                <DialogTitle>Photos</DialogTitle>
-                <DialogContent style={{ padding: 0, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-        <Swiper
-            modules={[Navigation, Pagination]}
-            spaceBetween={0}
-            slidesPerView={1} // Show one image at a time
-            navigation
-            pagination={{ clickable: true }}
-            style={{ width: '100%', height: '100%' }} // Make Swiper take full size
-        >
-            {images?.map((image:any, index:any) => (
-                <SwiperSlide key={index} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                    <img 
-                     src={image.src || image} // Use image directly
-                        alt={`Slide ${index + 1}`} 
-                        style={{ width: '100%', height: '100%', objectFit: 'contain' }} // Ensure the image fits
-                    />
-                </SwiperSlide>
-            ))}
-        </Swiper>
-    </DialogContent>
-                <DialogActions>
+                <DialogTitle
+                    style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        backgroundColor: '#f5f5f5', // Light gray background
+                        padding: '8px'
+                    }}
+                >
+                    Photos
+                    <Button
+                        onClick={() => handleModalClose("photos")}
+                        variant="contained"
+                        color="primary"
+                        style={{
+                            backgroundColor: '#FF7F7F', // Set button color
+                            color: '#fff',
+                            padding: '2px 6px',
+                            borderRadius: '4px',
+                            textTransform: 'none'
+                        }}
+                    >
+                        Close
+                    </Button>
+                </DialogTitle>
+                <DialogContent
+                    style={{
+                        padding: 0,
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                    }}
+                >
+                    <Swiper
+                        modules={[Navigation, Pagination, Scrollbar, A11y]}
+                        spaceBetween={0}
+                        slidesPerView={1}
+                        navigation
+                        pagination={{ clickable: true }}
+                        scrollbar={{ draggable: true }}
+                        // onSlideChange={() => console.log('slide change')}
+                        // onSwiper={(swiper) => console.log(swiper)}
+                        style={{
+                            width: '100%',
+                            height: '100%',
+                            paddingBottom: '2rem' // Extra space for pagination controls
+                        }}
+                    >
+                        {images?.map((image: any, index: any) => (
+                            <SwiperSlide
+                                key={index}
+                                style={{
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    alignItems: 'center'
+                                }}
+                            >
+                                <img
+                                    src={image.src || image}
+                                    alt={`Slide ${index + 1}`}
+                                    style={{
+                                        width: '100%',
+                                        height: '100%',
+                                        objectFit: 'contain', // Ensures full view without cropping
+                                        paddingBottom: '1rem' // Additional padding for spacing from pagination
+                                    }}
+                                />
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+                </DialogContent>
+                {/* <DialogActions>
                     <Button onClick={() => handleModalClose("photos")}>Close</Button>
-                </DialogActions>
+                </DialogActions> */}
             </Dialog>
 
 
-            <Dialog open={openModal.video} onClose={() => handleModalClose("video")}>
-                <DialogTitle>Video</DialogTitle>
-                <DialogContent>
+            <Dialog PaperProps={{
+                style: {
+                    width: '90%',
+                    height: '100%',
+                    maxWidth: 'none',
+                },
+            }} open={openModal.video} onClose={() => handleModalClose("video")}>
+  <DialogTitle
+                    style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        backgroundColor: '#f5f5f5', // Light gray background
+                        padding: '8px'
+                    }}
+                >
+                    Vedio
+                    <Button
+                        onClick={() => handleModalClose("video")}
+                        variant="contained"
+                        color="primary"
+                        style={{
+                            backgroundColor: '#FF7F7F', // Set button color
+                            color: '#fff',
+                            padding: '2px 6px',
+                            borderRadius: '4px',
+                            textTransform: 'none'
+                        }}
+                    >
+                        Close
+                    </Button>
+                </DialogTitle>
+                <DialogContent   style={{
+                        padding: 0,
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                    }} >
                     {/* Content for video */}
-                    <iframe src={links.video} width="100%" height="315" allow="autoplay" title="Video" />
+                    <iframe 
+            src={`https://www.youtube.com/embed/${links.video?.split('v=')[1]?.split('&')[0]}`} // Extract video ID
+            style={{
+                width: '100%',
+                height: '100%',
+                border: 'none',
+                padding:3
+            }} 
+            allow="autoplay; encrypted-media" 
+            allowFullScreen 
+            title="YouTube Video"
+        />
                 </DialogContent>
-                <DialogActions>
-                    <Button onClick={() => handleModalClose("video")}>Close</Button>
-                </DialogActions>
+       
             </Dialog>
         </motion.div>
     )

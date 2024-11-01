@@ -7,17 +7,47 @@ import image3 from './assets/ecommerce/image3.png';
 import image4 from './assets/ecommerce/image4.png';
 import image5 from './assets/ecommerce/image5.png';
 import image6 from './assets/ecommerce/image6.png';
+// bot
+import imagebot1 from './assets/ecommercebot/imagebot1.png';
+import imagebot2 from './assets/ecommercebot/imagebot2.png';
+import imagebot3 from './assets/ecommercebot/imagebot3.png';
+import imagebot4 from './assets/ecommercebot/imagebot4.png';
+import imagebot5 from './assets/ecommercebot/imagebot5.png';
+import imagebot6 from './assets/ecommercebot/imagebot6.png';
+import imagebot7 from './assets/ecommercebot/imagebot7.png';
+import imagebot8 from './assets/ecommercebot/imagebot8.png';
+import imagebot9 from './assets/ecommercebot/imagebot9.png';
+import imagebot10 from './assets/ecommercebot/imagebot10.png';
+import imagebot11 from './assets/ecommercebot/imagebot11.png';
+
+import imagecalc1 from './assets/calculator/image1.png';
+import imagecalc2 from './assets/calculator/image2.png';
+import imagecalc3 from './assets/calculator/image3.png';
+import imagecalc4 from './assets/calculator/image4.png';
+import imagecalc5 from './assets/calculator/image5.png';
+
+//sales
+ import sales1 from './assets/sales/image1.png';
+ import sales2 from './assets/sales/image2.png';
+ import sales3 from './assets/sales/image3.png';
+ import sales5 from './assets/sales/image5.png';
+ import sales6 from './assets/sales/image6.png';
+// import imagebot8 from './assets/ecommercebot/imagebot8.png';
+// import imagebot9 from './assets/ecommercebot/imagebot9.png';
+// import imagebot10 from './assets/ecommercebot/imagebot10.png';
+// import imagebot11 from './assets/ecommercebot/imagebot11.png';
+// import imagebot12 from './assets/ecommercebot/imagebot12.png';
 // import flutterImage from '../assets/images/flutter-project.jpg';
 // import phpImage from '../assets/images/php-project.jpg';
 
 export const projects = {
  main: {
     "name": "Abnet Wolde",
-    "shortDesc": "I focus on developing user-friendly web, and mobile applications that meet the client's requirements, with attention to detail, scalability, and performance.",
+    "shortDesc": "I specialize in creating user-friendly web, telegram bot, and mobile apps that fully meet client needs, with a strong focus on detail, scalability, and performance.",
     "titles": [
-      "Frontend Development",
-      "Backend Development",
-      "App Development"
+      "Full Stack Web Development",
+      "Telegram Bot Development",
+      "ReactNative Development"
     ],
     "heroImage": "https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg",
     "techStackImages": [
@@ -46,13 +76,13 @@ export const projects = {
       "link": "https://github.com/Abenetwolde"
     },
     {
-      "icon": "FaInstagram",
-      "link": "https://www.instagram.com/jhondoe"
-    },
-    {
-      "icon": "FaTwitter",
-      "link": "https://twitter.com/jhondoe"
+      "icon": "FaTelegram",
+      "link": "https://t.me/abnet_abi"
     }
+    // {
+    //   "icon": "FaVoicemail",
+    //   "link": "https://twitter.com/jhondoe"
+    // }
   ],
   skills: [
     {
@@ -150,133 +180,171 @@ export const projects = {
     {
       "name": "Telegram Bot",
       "image": "https://img.icons8.com/?size=100&id=oWiuH0jFiU0R&format=png&color=000000",
-      "category": "Tools"
+      "category": "Others"
     },
     {
       "name": "React Native",
       "image": "https://img.icons8.com/?size=100&id=wPohyHO_qO1a&format=png&color=000000",
-      "category": "Tools"
+      "category": "Others"
     },
  
     {
       "name": "Java",
       "image": "https://jigarsable.vercel.app/_next/image?url=https%3A%2F%2Fimg.icons8.com%2Fcolor%2F144%2Fnull%2Fjava-coffee-cup-logo--v1.png&w=128&q=75",
-      "category": "Tools"
+      "category": "Others"
     },
     {
       "name": "Android Studio",
       "image": "https://jigarsable.vercel.app/_next/image?url=https%3A%2F%2Fimg.icons8.com%2Fcolor%2F144%2Fnull%2Fandroid-studio--v3.png&w=128&q=75",
-      "category": "Tools"
+      "category": "Others"
     },
     {
       "name": "Googling",
       "image": "https://jigarsable.vercel.app/_next/image?url=https%3A%2F%2Fimg.icons8.com%2Fcolor%2F144%2Fnull%2Fgoogle-logo.png&w=128&q=75",
-      "category": "Tools"
+      "category": "Others"
     },
  
     {
       "name": "GitHub",
       "image": "https://jigarsable.vercel.app/_next/image?url=https%3A%2F%2Fimg.icons8.com%2Fmaterial-outlined%2F96%2Fnull%2Fgithub.png&w=128&q=75",
-      "category": "Tools"
+      "category": "Others"
     },
     {
       "name": "DigitalOcean",
       "image": "https://jigarsable.vercel.app/_next/image?url=https%3A%2F%2Fimg.icons8.com%2Fexternal-tal-revivo-color-tal-revivo%2F96%2Fnull%2Fexternal-digital-ocean-a-cloud-infrastructure-with-data-centers-worldwide-logo-color-tal-revivo.png&w=128&q=75",
-      "category": "Tools"
+      "category": "Others"
     },
     {
       "name": "Jira",
       "image": "https://jigarsable.vercel.app/_next/image?url=https%3A%2F%2Fimg.icons8.com%2Fcolor%2F144%2Fnull%2Fjira.png&w=128&q=75",
-      "category": "Tools"
+      "category": "Others"
     },
     {
       "name": "Pentation Testing",
       "image": "https://img.icons8.com/?size=100&id=Q8ShCeCnUwac&format=png&color=000000",
-      "category": "Tools"
+      "category": "Others"
     },
     {
       "name": "UI/UX",
       "image": "https://img.icons8.com/?size=100&id=blpKd0mpBEOj&format=png&color=000000",
-      "category": "Tools"
+      "category": "Others"
     },
     {
       "name": "Photoshop",
       "image": "https://img.icons8.com/?size=100&id=13677&format=png&color=000000",
-      "category": "Tools"
+      "category": "Others"
     }
   ],
   projects: [
     {
+      name: "Sales Performance",
+      techstack: "ReactJS, TailwindCSS, FastAPI",
+      category: "Web App",
+      images: [sales1,sales2,sales3,sales5,sales6],
+      links: {
+        code: "https://github.com/Abenetwolde/Sales_Dashboard",
+        visit: "https://sales-dashboard-mu.vercel.app/"
+      }
+    },
+    {
       name: "Project Title",
-      techstack: "HTML5, CSS3, JavaScript, jQuery",
-      category: "MERN Stack",
+      techstack: "PHP, MySQL, HTML5, CSS3, Bootstrap, JavaScript",
+      category: "Web App",
+      image: "https://media.geeksforgeeks.org/wp-content/cdn-uploads/20210114225740/10-Best-Web-Development-Project-Ideas-For-Beginners-in-2021.png",
+      links: {
+        code: "",
+        video: "",
+        visit: ""
+      }
+    },
+    {
+      name: "Finance Calculator",
+      techstack: "NextJs, MongoDB, Prisma, Google Auth",
+      category: "Web App",
+      images: [imagecalc1,imagecalc2,imagecalc3,imagecalc4,imagecalc5],
+      links: {
+        code: "https://github.com/Abenetwolde/Finance_Calculator-",
+        visit: "https://finance-calculator-fawn.vercel.app/"
+      }
+    },
+
+  
+
+    //favoriates
+    {
+      name: "Telegram Ecommerce Bot",
+      techstack: "TelegrafJS, NodeJS, MongoDB",
+      category: "My Favorites",
+      images: [imagebot1, imagebot2, imagebot3, imagebot4, imagebot5, imagebot6,imagebot7,imagebot8,imagebot9,imagebot10,imagebot11],
+      links: {
+        code: "https://github.com/Abenetwolde/F_Dashboard.git",
+        video: "https://www.youtube.com/watch?v=S90eIW0xMFk&t=88s",
+      visit: "https://telegram-bot-ecommerce.netlify.app/"
+      }
+    },
+    {
+      name: "Admin Web App for Telegram Ecommerce Bot",
+      techstack: "ReactJS, NodeJS, ExpressJS, MongoDB, Cloudinary",
+      category: "My Favorites",
       images: [image1, image2, image3, image4, image5, image6],
       links: {
-        code: "https://media.licdn.com/dms/image/v2/D4E22AQHvuxencw_uIQ/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1724842545135?e=1732752000&v=beta&t=QTWSS7QXmmce4TOHfmVz4qwOkAwZAMWSE9XnVGjqV3U",
-        video: "https://media.licdn.com/dms/image/v2/D4E22AQHvuxencw_uIQ/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1724842545135?e=1732752000&v=beta&t=QTWSS7QXmmce4TOHfmVz4qwOkAwZAMWSE9XnVGjqV3U",
-      visit: "https://media.licdn.com/dms/image/v2/D4E22AQHvuxencw_uIQ/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1724842545135?e=1732752000&v=beta&t=QTWSS7QXmmce4TOHfmVz4qwOkAwZAMWSE9XnVGjqV3U"
+        code: "https://github.com/Abenetwolde/F_Bot",
+        video: "https://www.youtube.com/watch?v=S90eIW0xMFk&t=88s",
+      visit: "https://t.me/elitesporttgbot"
       }
     },
-    {
-      "name": "Project Title",
-      "techstack": "Flutter, Dart, Firebase",
-      "category": "Flutter",
-      "image": "https://media.geeksforgeeks.org/wp-content/cdn-uploads/20210114225740/10-Best-Web-Development-Project-Ideas-For-Beginners-in-2021.png",
-      "links": {
-        "code": "",
-        "video": "",
-        "visit": ""
-      }
-    },
-    {
-      "name": "Project Title",
-      "techstack": "PHP, MySQL, HTML5, CSS3, Bootstrap, JavaScript",
-      "category": "LAMP Stack",
-      "image": "https://media.geeksforgeeks.org/wp-content/cdn-uploads/20210114225740/10-Best-Web-Development-Project-Ideas-For-Beginners-in-2021.png",
-      "links": {
-        "code": "",
-        "video": "",
-        "visit": ""
-      }
-    }
+ 
   ],
   educations: [
     {
-      "institute": "XYZ School | CBSE",
-      "degree": "HSC Science",
-      "duration": "2014 - 2016"
+      // "logo":"https://www.afromina-digitals.com/v1.0/wp-content/uploads/2022/03/afromina_primerylogo_t.png",
+      "institute": "Akaki Poly Technique Collage",
+      "degree": "Infromation System",
+      "duration": "2020 - 2022",
+      "desc": [
+        "Proficient in DNS and DHCP configuration,and Access Role Management.",
+        "Adept at Network configuring and troubleshooting networks",
+        "Experienced in maintaining and troubleshooting hardware"
+      ]
     },
     {
-      "institute": "XYZ College Of Engineering",
-      "degree": "B.Tech CSE",
-      "duration": "2016 - 2020",
+      "logo":"http://www.aastu.edu.et/wp-content/uploads/2024/10/unnamed-1.jpg",
+      "institute": "Addis Ababa Science and Technology University ",
+      "degree": "Software Engineering | BSC",
+      "duration": "2018 - 2022",
       "desc": [
-        "Pursuing IT Engineering course from ABC University",
-        "Worked on web application development using HTML, CSS, and JavaScript, designing a database system using SQL",
-        "Familiar with software development methodologies and project management practices, including Agile and Waterfall methodologies."
+        "Proficient in C, C++, Java, PHP, and JavaScript.",
+        "Knowledgeable Data Structures and Algorithms",
+        "Knowledgeable in cyber security principles and practices",
+        "Knowledgeable in managing software development projects from inception to completion."
       ]
     }
   ],
   experiences: [
     {
-      "company": "ABC Tech Solutions",
-      "position": "Web Developer",
-      "duration": "2020 -2022",
+      "logo":"https://www.afromina-digitals.com/v1.0/wp-content/uploads/2022/03/afromina_primerylogo_t.png",
+      "company": "AfroMiNA Digital Technologies PLC",
+      "position": "Software Developer",
+      "duration": "2022-Aug -2022-Dec",
       "desc": [
-        "Assisted with design and development of project.",
-        "Worked on building the product from scratch and built multiple dashboards.",
-        "Skills: HTML · CSS · JavaScript · TailwindCSS · ReactJS · NodeJS · MySQL · REST APIs"
+        "I contributed to the development of a Mobile Application called Place to be Ethiopia, an event-sharing platform with over 20,000 downloads on the Play Store",
+        "Built a Telegram referral bot using Telegraf.js framework to promote both the mobile application and the Telegram channel, with integrated rewards for users.",
+        "Played a key role in developing the mobile application using React Native.",
+        "Skills: ReactNative · Telegraf.js  · Figma "
       ]
     },
     {
-      "company": "XYZ Tech Solutions",
-      "position": "Web Developer",
-      "duration": "2022 - present",
+      "logo":"https://media.licdn.com/dms/image/v2/C4D0BAQEo8wzX1GwQUw/company-logo_200_200/company-logo_200_200/0/1630498738280/information_network_security_agency_logo?e=1738800000&v=beta&t=jMYWbGD7gO_oQOxyKbJTRYO3TjxY0-zTgu-BURWvB1M",
+      "company": "Information Network Security Administrator",
+      "position": "Software Application Developer",
+      "duration": "2022 - Present",
       "desc": [
-        "Assisted with design and development of project.",
-        "Worked on building the product from scratch and built multiple dashboards.",
-        "Skills: HTML · CSS · JavaScript · TailwindCSS · ReactJS · NodeJS · MySQL · REST APIs"
+        "Developed web applications to control security system products and manage client interactions",
+        "Built APIs with Express.js for antivirus, web application firewall, and VPN produts management, enabling real-time communication",
+        "Created frontend with React.js, ensuring efficient integration with backend services and clear data visualization.",
+        "Skills: React.js · Node.js · Monogo  · MySQL · Selenium · cypress.io · Jenkins · OWASP ZAP · JMeter · Sonarqube "
       ]
-    }
+    },
+  
   ]
 }

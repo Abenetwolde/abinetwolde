@@ -1,6 +1,7 @@
 import { MdSchool, MdWork } from 'react-icons/md'
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { Avatar } from '@mui/material';
 
 interface ExperienceProps {
   index: number,
@@ -10,9 +11,10 @@ interface ExperienceProps {
   institute: string,
   degree: string,
   duration: string,
+  logo?: string, 
 }
 
-const Experience = ({ index, company, position, desc, institute, degree, duration }: ExperienceProps) => {
+const Experience = ({ index, company, position, desc, institute, degree, duration,logo  }: ExperienceProps) => {
 
   const [ref, inView] = useInView({
     threshold: 0.5,
@@ -39,7 +41,11 @@ const Experience = ({ index, company, position, desc, institute, degree, duratio
         initial="hidden"
         animate={inView ? 'visible' : 'hidden'}
         className="order-1 rounded-lg w-full ml-3 md:ml-0 bg-white dark:bg-grey-800 md:w-5/12 p-3 md:px-4 md:py-4">
-        <h3 className="mb-2 font-medium text-lg md:text-xl">{company || institute}</h3>
+        <div className="flex items-center gap-3 mb-2">
+          {/* Add the Avatar with the logo */}
+          {logo && <Avatar src={logo} alt={`${company || institute} logo`} />}
+          <h3 className="font-medium text-lg md:text-xl">{company || institute}</h3>
+        </div>
         <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">{position || degree} | {duration}</p>
         <ul className="text-sm text-gray-400 mt-2 ml-4 list-disc">
           {desc && desc.map((d, i) => (
