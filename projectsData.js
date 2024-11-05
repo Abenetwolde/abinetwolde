@@ -287,8 +287,8 @@ export const projects = {
 
       images: [check1,check2,check3],
       links: {
-        code: "https://github.com/Abenetwolde/Sales_Dashboard",
-        visit: "https://sales-dashboard-mu.vercel.app/"
+        code: "https://github.com/Abenetwolde/check-spelling-for-channel-posts.git",
+        // visit: "https://sales-dashboard-mu.vercel.app/"
       }
     },
     {
@@ -298,8 +298,8 @@ export const projects = {
 
       images: [quiz1,quiz2,quiz3,quiz4],
       links: {
-        code: "https://github.com/Abenetwolde/Sales_Dashboard",
-        visit: "https://sales-dashboard-mu.vercel.app/"
+        code: "",
+        visit: ""
       }
     },
     {
@@ -309,8 +309,9 @@ export const projects = {
 
       images: [tax1,tax2,tax3],
       links: {
-        code: "https://github.com/Abenetwolde/Sales_Dashboard",
-        visit: "https://sales-dashboard-mu.vercel.app/"
+          code: "https://github.com/Abenetwolde/Ethiopian-Tax-calculator.git",
+        visit: "https://ethiopian-tax-calculator.vercel.app/"
+
       }
     },
     {
@@ -340,7 +341,7 @@ export const projects = {
       category: "Web App",
       images: [chat1,chat2,chat3],
       links: {
-        code: "",
+        code: "https://github.com/Abenetwolde/Messenger-.git",
         video: "",
         visit: ""
       }
