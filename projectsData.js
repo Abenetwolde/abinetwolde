@@ -337,7 +337,7 @@ export const projects = {
     },
     {
       name: "Chat App with  Video and Audio",
-      techstack: "PHP, MySQL, HTML5, CSS3, Bootstrap, JavaScript",
+      techstack: "ReactJS, NodeJS, ExpressJS, MongoDB, Socket.IO",
       category: "Web App",
       images: [chat1,chat2,chat3],
       links: {
