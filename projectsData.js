@@ -32,6 +32,38 @@ import imagecalc5 from './assets/calculator/image5.png';
  import sales3 from './assets/sales/image3.png';
  import sales5 from './assets/sales/image5.png';
  import sales6 from './assets/sales/image6.png';
+
+ //chat
+ import chat1 from './assets/telegram/image2.png';
+ import chat2 from './assets/telegram/image2.png';
+ import chat3 from './assets/telegram/image3.png';
+
+ //cloud
+ import cloud1 from './assets/cloud/image1.png';
+ import cloud2 from './assets/cloud/image2.png';
+ import cloud3 from './assets/cloud/image3.png';
+
+  //check
+  import check1 from './assets/check/check1.png';
+  import check2 from './assets/check/check2.png';
+  import check3 from './assets/check/check3.png';
+
+    //tax
+    import tax1 from './assets/tax/image1.png';
+    import tax2 from './assets/tax/image2.png';
+    import tax3 from './assets/tax/image3.png';
+
+        //quiz
+        import quiz1 from './assets/quiz/quiz1.png';
+        import quiz2 from './assets/quiz/quiz2.png';
+        import quiz3 from './assets/quiz/quiz3.png';
+        import quiz4 from './assets/quiz/quiz4.png';
+
+              //quiz
+              import place1 from './assets/placetobe/image1.png';
+              import place12 from './assets/placetobe/image2.png';
+              import place13 from './assets/placetobe/image3.png';
+              
 // import imagebot8 from './assets/ecommercebot/imagebot8.png';
 // import imagebot9 from './assets/ecommercebot/imagebot9.png';
 // import imagebot10 from './assets/ecommercebot/imagebot10.png';
@@ -64,7 +96,7 @@ export const projects = {
     "title": "Full Stack Developer",
     "about": "I am a Full-Stack developer based in Addis Ababa, Ethiopia. I'm passionate about creating beautiful, functional, and user-friendly Websites, Mobile Applications, and Telegram Bots. I'm constantly pushing myself to learn and grow as a developer. Love building full-stack Ethiopian clones and side projects.",
     "callUrl": "",
-    "resumeUrl": ""
+    "resumeUrl": "https://drive.google.com/file/d/1rwtIidd3hZ3T50BlC88RIjunN8lwoOzo/view?usp=sharing"
   },
   socials: [
     {
@@ -237,7 +269,63 @@ export const projects = {
   ],
   projects: [
     {
-      name: "Sales Performance",
+      name: "Event Promotion",
+      techstack: "ReactNative",
+      category: "Mobile App",
+      images: [place1,place12,place13,],
+      links: {
+        visit: "https://play.google.com/store/apps/details?id=com.afromina.placetobe&hl=en"
+      }
+    },
+
+    //bot
+    
+    {
+      name: "Spelling Check for Channel Posts",
+      techstack: "TelegrafJs, speller.yandex.net",
+      category: "Telegram  Bot",
+
+      images: [check1,check2,check3],
+      links: {
+        code: "https://github.com/Abenetwolde/Sales_Dashboard",
+        visit: "https://sales-dashboard-mu.vercel.app/"
+      }
+    },
+    {
+      name: "Quiz Bot",
+      techstack: "TelegrafJs, MongoDB",
+      category: "Telegram  Bot",
+
+      images: [quiz1,quiz2,quiz3,quiz4],
+      links: {
+        code: "https://github.com/Abenetwolde/Sales_Dashboard",
+        visit: "https://sales-dashboard-mu.vercel.app/"
+      }
+    },
+    {
+      name: "Ethiopian Employment Income Tax Calculator",
+      techstack: "TelegrafJs, MongoDB",
+      category: "Telegram  Bot",
+
+      images: [tax1,tax2,tax3],
+      links: {
+        code: "https://github.com/Abenetwolde/Sales_Dashboard",
+        visit: "https://sales-dashboard-mu.vercel.app/"
+      }
+    },
+    {
+      name: "Cloud Storage SASS",
+      techstack: "NextJS, Firebase",
+      category: "Web App",
+
+      images: [cloud1,cloud2,cloud3],
+      links: {
+        code: "https://github.com/Abenetwolde/Sales_Dashboard",
+        visit: "https://sales-dashboard-mu.vercel.app/"
+      }
+    },
+    {
+      name: "Sales Performance Tracker",
       techstack: "ReactJS, TailwindCSS, FastAPI",
       category: "Web App",
       images: [sales1,sales2,sales3,sales5,sales6],
@@ -247,10 +335,10 @@ export const projects = {
       }
     },
     {
-      name: "Project Title",
+      name: "Chat App with  Video and Audio",
       techstack: "PHP, MySQL, HTML5, CSS3, Bootstrap, JavaScript",
       category: "Web App",
-      image: "https://media.geeksforgeeks.org/wp-content/cdn-uploads/20210114225740/10-Best-Web-Development-Project-Ideas-For-Beginners-in-2021.png",
+      images: [chat1,chat2,chat3],
       links: {
         code: "",
         video: "",
@@ -289,7 +377,7 @@ export const projects = {
       images: [image1, image2, image3, image4, image5, image6],
       links: {
         code: "https://github.com/Abenetwolde/F_Bot",
-        video: "https://www.youtube.com/watch?v=S90eIW0xMFk&t=88s",
+        video: "https://www.youtube.com/watch?v=B7YGERFo3Iw",
       visit: "https://t.me/elitesporttgbot"
       }
     },
