@@ -7,7 +7,7 @@ export default function Head() {
       <meta property="og:site_name" content="abnet wolde's Portfolio" />
       <meta property="og:title" content="Portfolio | Abnet Wolde - Full Stack Developer" />
       <meta property="og:description"
-        content="I'm Jigar Sable, full-stack developer based in Ethiopia, Addis Ababa. My journey in web development began during my first year of college." />
+        content="Abnet Wolde, full-stack developer based in Ethiopia, Addis Ababa. My journey in web development began during my first year of college." />
       <meta property="og:url" content="https://abnet-wolde-dev.vercel.app/" />
       <meta property="og:image" content="https://abnet-wolde-dev.vercel.app/landing.jpeg" />
       <link rel="canonical" href="https://abnet-wolde-dev.vercel.app/" />
