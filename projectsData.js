@@ -322,7 +322,7 @@ export const projects = {
       images: [cloud1,cloud2,cloud3],
       links: {
         code: "https://github.com/Abenetwolde/Sales_Dashboard",
-        visit: "https://sales-dashboard-mu.vercel.app/"
+        visit: "https://ab-cloud-sass.vercel.app/"
       }
     },
     {
@@ -379,7 +379,7 @@ export const projects = {
       links: {
         code: "https://github.com/Abenetwolde/F_Bot",
         video: "https://www.youtube.com/watch?v=B7YGERFo3Iw",
-      visit: "https://t.me/elitesporttgbot"
+      visit: "https://telegram-bot-ecommerce.netlify.app/"
       }
     },
  
