@@ -19,7 +19,7 @@ const Hero = ({ mainData }: HeroProps) => {
     return (
         <section id='home' className={`${theme === 'dark' && "bg-grey-900"} relative min-h-screen w-full mx-auto overflow-hidden`}>
 
-            <div className="absolute inset-0 bg-black opacity-10  min-h-screen h-full w-full">
+            <div className="absolute inset-0 bg-white opacity-10  min-h-screen h-full w-full">
                 <Image
                     src="/background.jpeg"
                     layout="fill"
