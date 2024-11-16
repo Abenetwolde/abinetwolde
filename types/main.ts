@@ -9,6 +9,8 @@ type project = {
     images: any,
     techstack: string,
     category: string,
+    discription:string,
+    blog:string,
     links: {
         visit: string,
         code: string,

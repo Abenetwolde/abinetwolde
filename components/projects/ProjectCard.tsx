@@ -6,7 +6,7 @@ import { MdOutlineInsertPhoto } from "react-icons/md";
 import { BiLinkExternal } from "react-icons/bi"
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import 'swiper/css';
 import 'swiper/css/autoplay';
 import { A11y, Autoplay, EffectCube, Scrollbar } from 'swiper/modules';
@@ -23,13 +23,14 @@ import 'swiper/css/autoplay';
 
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import React from "react";
 const cardVariants = {
     hidden: { y: 50, opacity: 0 },
     visible: { y: 0, opacity: 1, transition: { duration: 0.6, ease: 'easeInOut' } }
 };
 
-const Project = ({ name, images, category, techstack, links }: project) => {
-
+const Project = ({ name, images, blog,category, techstack, links, discription }: project) => {
+ 
     const [ref, inView] = useInView({
         threshold: 0.2,
         triggerOnce: true
@@ -79,7 +80,7 @@ const Project = ({ name, images, category, techstack, links }: project) => {
                                 <div className="w-full ">
                                     <Image
                                         src={image}
-                                          loading='lazy'
+                                        loading='lazy'
                                         alt={`carousel-image-${index}`}
                                         width={1000}
                                         height={1000}
@@ -131,6 +132,9 @@ const Project = ({ name, images, category, techstack, links }: project) => {
             <div className="my-2 flex flex-col gap-3">
                 <h3 className="text-xl font-medium">{name}</h3>
                 <p className="text-sm text-gray-400"> <span className="font-medium">Tech Stack:</span> {techstack}</p>
+                <a href={blog} className="text-sm text-blue-500 underline hover:text-blue-700" target="_blank" rel="noopener noreferrer">
+  {blog&&<span className="font-medium">Read the Case Study</span> }
+</a>
             </div>
             <Dialog PaperProps={{
                 style: {
@@ -167,12 +171,19 @@ const Project = ({ name, images, category, techstack, links }: project) => {
                 <DialogContent
                     style={{
                         padding: 0,
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center',
+                        overflowY: 'auto', // Enable scrolling
+                        maxHeight: 'calc(100vh - 150px)',
+                        ...(!discription && { // Check if description exists
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                          } ),
+
                     }}
                 >
                     <Swiper
+                 
                         modules={[Navigation, Pagination, Scrollbar, A11y]}
                         spaceBetween={0}
                         slidesPerView={1}
@@ -182,8 +193,9 @@ const Project = ({ name, images, category, techstack, links }: project) => {
                         // onSlideChange={() => console.log('slide change')}
                         // onSwiper={(swiper) => console.log(swiper)}
                         style={{
+                            height: 'auto',
                             width: '100%',
-                            height: '100%',
+                            // height: '100%',
                             paddingBottom: '2rem' // Extra space for pagination controls
                         }}
                     >
@@ -209,6 +221,21 @@ const Project = ({ name, images, category, techstack, links }: project) => {
                             </SwiperSlide>
                         ))}
                     </Swiper>
+                    {discription && (
+                        <div
+                            style={{
+                                padding: '1rem',
+                                width: '100%',
+                                // maxHeight: '40%',
+                                overflowY: 'auto',
+                                backgroundColor: '#ffffff',
+                                color: '#333',
+                                textAlign: 'left',
+                                lineHeight: '1.5',
+                            }}
+                            dangerouslySetInnerHTML={{ __html: discription }}
+                        ></div>
+                    )}
                 </DialogContent>
                 {/* <DialogActions>
                     <Button onClick={() => handleModalClose("photos")}>Close</Button>
@@ -223,7 +250,7 @@ const Project = ({ name, images, category, techstack, links }: project) => {
                     maxWidth: 'none',
                 },
             }} open={openModal.video} onClose={() => handleModalClose("video")}>
-  <DialogTitle
+                <DialogTitle
                     style={{
                         display: 'flex',
                         justifyContent: 'space-between',
@@ -248,30 +275,34 @@ const Project = ({ name, images, category, techstack, links }: project) => {
                         Close
                     </Button>
                 </DialogTitle>
-                <DialogContent   style={{
-                        padding: 0,
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                    }} >
+                <DialogContent style={{
+                    padding: 0,
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                }} >
                     {/* Content for video */}
-                    <iframe 
-            src={`https://www.youtube.com/embed/${links.video?.split('v=')[1]?.split('&')[0]}`} // Extract video ID
-            style={{
-                width: '100%',
-                height: '100%',
-                border: 'none',
-                padding:3
-            }} 
-            allow="autoplay; encrypted-media" 
-            allowFullScreen 
-            title="YouTube Video"
-        />
+                    <iframe
+                        src={`https://www.youtube.com/embed/${links.video?.split('v=')[1]?.split('&')[0]}`} // Extract video ID
+                        style={{
+                            width: '100%',
+                            height: '100%',
+                            border: 'none',
+                            padding: 3
+                        }}
+                        allow="autoplay; encrypted-media"
+                        allowFullScreen
+                        title="YouTube Video"
+                    />
                 </DialogContent>
-       
+
             </Dialog>
         </motion.div>
     )
 }
 
 export default Project
+
+function useRef(arg0: null) {
+    throw new Error("Function not implemented.");
+}

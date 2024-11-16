@@ -19,14 +19,15 @@ const Hero = ({ mainData }: HeroProps) => {
     return (
         <section id='home' className={`${theme === 'dark' && "bg-grey-900"} relative min-h-screen w-full mx-auto overflow-hidden`}>
 
-            <div className="absolute -z-10 min-h-screen h-full w-full">
+            <div className="absolute inset-0 bg-black opacity-10  min-h-screen h-full w-full">
                 <Image
-                    src="/b2.jpg"
+                    src="/background.jpeg"
                     layout="fill"
                     objectFit="cover"
                     loading='lazy'
                     className='object-bottom'
                     quality={100} alt={''} />
+                    
             </div>
 
             <div className="py-16 lg:py-48 flex flex-col-reverse lg:flex-row justify-around gap-10 lg:gap-0">

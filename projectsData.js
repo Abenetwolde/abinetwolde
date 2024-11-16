@@ -92,7 +92,7 @@ export const projects = {
   },
   about: {
     "aboutImage": "https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg",
-    "aboutImageCaption": "< Stick to you Guns 🚀/>",
+    "aboutImageCaption": "< Stick to your Guns 🚀/>",
     "title": "Full Stack Developer",
     "about": "I am a Full-Stack developer based in Addis Ababa, Ethiopia. I'm passionate about creating beautiful, functional, and user-friendly Websites, Mobile Applications, and Telegram Bots. I'm constantly pushing myself to learn and grow as a developer. Love building full-stack Ethiopian clones and side projects.",
     "callUrl": "",
@@ -365,22 +365,203 @@ export const projects = {
       techstack: "TelegrafJS, NodeJS, MongoDB",
       category: "My Favorites",
       images: [imagebot1, imagebot2, imagebot3, imagebot4, imagebot5, imagebot6,imagebot7,imagebot8,imagebot9,imagebot10,imagebot11],
+   
       links: {
-        code: "https://github.com/Abenetwolde/F_Dashboard.git",
+        code: "https://github.com/Abenetwolde/FoodOrderingBot.git",
         video: "https://www.youtube.com/watch?v=S90eIW0xMFk&t=88s",
-      visit: "https://telegram-bot-ecommerce.netlify.app/"
+      visit: "https://t.me/elitesporttgbot"
       }
     },
     {
-      name: "Admin Web App for Telegram Ecommerce Bot",
+      name: "Admin Web App for Ecommerce Telegram Bot",
       techstack: "ReactJS, NodeJS, ExpressJS, MongoDB, Cloudinary",
       category: "My Favorites",
       images: [image1, image2, image3, image4, image5, image6],
+      discription: `
+     <div>
+  <p><strong>1, Admin App Overview</strong></p>
+  <p>
+    The admin app for the Telegram e-commerce bot has two main sections: 
+    <strong>Analysis Pages</strong> and <strong>Data Management Pages</strong>.
+  </p>
+<br/>
+  <p>
+    The User Analysis Page offers various ways to visualize the bot's performance 
+    and user engagement:
+  </p>
+  <ul>
+    <li>
+      <p>
+        📉 <strong>User Growth Tracking:</strong> Shows how many users joined during 
+        specific time intervals and the growth rate of new sign-ups over the past month, 
+        including data for individual users.
+      </p>
+    </li>
+    <li>
+      <p>
+        🧭 <strong>Time Spent Analysis:</strong> Tracks how long users spend on the bot 
+        in minutes during specific intervals and shows the growth rate of time spent by 
+        users over the past month.
+      </p>
+    </li>
+    <li>
+      <p>
+        🖱️ <strong>Click Activity:</strong> Visualizes the number of clicks users made 
+        in different time intervals and displays the growth rate of clicks over the past month.
+      </p>
+    </li>
+    <li>
+      <p>
+        🌐 <strong>Language Preference Visualization:</strong> Displays the distribution 
+        of users' language preferences, showing how many use Amharic versus English.
+      </p>
+    </li>
+    <li>
+      <p>
+        ⭐️ <strong>User Rating Analysis:</strong> Provides a percentage of users who have 
+        rated the bot, offering insights into user satisfaction.
+      </p>
+    </li>
+    <li>
+      <p>
+        💹 <strong>User Source Tracking:</strong> Shows how users are joining the bot—whether 
+        through channels, invitations, or directly via the bot.
+      </p>
+    </li>
+    <li>
+      <p>
+        🏆 <strong>Top Performing Users:</strong> Highlights the top 3 users based on clicks, 
+        time spent, and total orders, useful for rewarding the most active users.
+      </p>
+    </li>
+    <li>
+      <p>
+        🔔 <strong>Real-Time Feedback & Response:</strong> Displays real-time user feedback 
+        with the ability to respond directly within the Telegram chat for prompt customer service.
+      </p>
+    </li>
+    <li>
+      <p>
+        🎁 <strong>Lottery and Invitation Management:</strong> Lets you see user participation 
+        in lotteries, track invitations, and manage prize distribution.
+      </p>
+    </li>
+    <li>
+      <p>
+        🌐 <strong>Localization:</strong> The admin app also supports both Amharic and English 
+        languages.
+      </p>
+    </li>
+    <li>
+      <p>
+        🎨 <strong>Theme Customization:</strong> Change the web app’s theme to suit your preference.
+      </p>
+    </li>
+  </ul>
+  <br/>
+
+  <p><strong>Order and Product Management</strong></p>
+  <p>
+    The Data Management Page includes essential functions for managing orders and products:
+  </p>
+  <ul>
+    <li>
+      <p>
+        📊 <strong>Product Analytics:</strong>
+      </p>
+      <ul>
+        <li><p>Top Ordered Categories: Highlights the most frequently ordered product categories.</p></li>
+        <li><p>Top Ordered Products: Displays the top products ordered.</p></li>
+        <li><p>Top Clicked Products: Shows products with the most clicks.</p></li>
+        <li><p>Top Clicked Categories: Displays the most clicked product categories.</p></li>
+      </ul>
+    </li>
+    <li>
+      <p>
+        📉 <strong>Order and Transaction Cards:</strong>
+      </p>
+      <ul>
+        <li><p>Completed Orders: Shows a graph of completed orders per month, compared to the previous month in percentage.</p></li>
+        <li><p>Canceled Orders: Visualizes canceled orders per month in comparison to the previous month.</p></li>
+        <li><p>Cash on Delivery Orders: Displays orders paid with cash on delivery, with a monthly graph and percentage comparison to the previous month.</p></li>
+        <li><p>Online Payment Orders: Shows online payment orders per month, compared to the last month in percentage.</p></li>
+        <li><p>Total Transactions: Visualizes the total number of transactions per month with a percentage comparison to the previous month.</p></li>
+      </ul>
+    </li>
+    <li>
+      <p>
+        📊 <strong>Order Status Overview:</strong> Provides a view of order statuses, 
+        including pending, canceled, completed, and delivered.
+      </p>
+    </li>
+  </ul>
+  <br/>
+   <br/>
+    <div>
+        <p><strong>2, Key Features of the Telegram E-Commerce Bot</strong></p>
+        <p>
+          The bot I developed is packed with features designed to enhance shopping while taking advantage of Telegram's unique strengths:
+        </p>
+        <h3>E-Commerce Capabilities</h3>
+        <ul>
+          <li>
+            <p>🔸 <strong>Product Filtering:</strong> Users can filter products by category.</p>
+          </li>
+          <li>
+            <p>🛒 <strong>Cart Management:</strong> Users can add products to their cart, adjust quantities, cancel orders, and reorder items.</p>
+          </li>
+          <li>
+            <p>🔎 <strong>Search:</strong> Products can be searched directly within the bot.</p>
+          </li>
+          <li>
+            <p>➡️ <strong>Pagination:</strong> Products are displayed with pagination, showing 6 items per page for smoother browsing.</p>
+          </li>
+          <li>
+            <p>🖼️ <strong>Image & Video Support:</strong> Products can be viewed with both images and videos, with the option to paginate through media.</p>
+          </li>
+          <li>
+            <p>💰 <strong>Payment Integration:</strong> The bot supports payments through Chapa and Stripe (in testing mode).</p>
+          </li>
+          <li>
+            <p>📧 <strong>User Feedback:</strong> Users can give feedback and rate the bot.</p>
+          </li>
+        </ul>
+      
+        <h3>Additional Functionalities</h3>
+        <ul>
+          <li>
+            <p>🌐 <strong>Localization:</strong> The bot supports both Amharic and English languages.</p>
+          </li>
+          <li>
+            <p>📢 <strong>Automated Posting:</strong> A script automatically schedules and posts products once per day.</p>
+          </li>
+          <li>
+            <p>✉️ <strong>Seamless Navigation:</strong> Users can easily move from a Telegram channel to the bot with a selected product to complete a purchase.</p>
+          </li>
+          <li>
+            <p>🖱️ <strong>Click Tracking:</strong> Tracks the number of clicks by time frame, individual user, and specific scene.</p>
+          </li>
+          <li>
+            <p>🧭 <strong>Time Tracking:</strong> Tracks how much time users spend within a given time frame, by individual user, and per specific scene.</p>
+          </li>
+          <li>
+            <p>↗️ <strong>Referral Program with Lottery:</strong> Users can invite others to join the Telegram channel, earn a lottery number, and potentially win free products or discounts.</p>
+          </li>
+          <li>
+            <p>📊 <strong>Admin Scene:</strong> The channel admin can view new users, manage orders, and post products to the channel directly from the bot.</p>
+          </li>
+        </ul>
+      </div>
+      
+</div>
+
+    `,
       links: {
-        code: "https://github.com/Abenetwolde/F_Bot",
+        code: "https://github.com/Abenetwolde/Admin_Dashboard_Ecommerce_Telegram_Bot.git",
         video: "https://www.youtube.com/watch?v=B7YGERFo3Iw",
       visit: "https://telegram-bot-ecommerce.netlify.app/"
-      }
+      },
+      blog:"https://www.linkedin.com/feed/update/urn:li:activity:7234514026720825344/"
     },
  
   ],
@@ -416,7 +597,7 @@ export const projects = {
       "position": "Software Developer",
       "duration": "2022-Aug -2022-Dec",
       "desc": [
-        "I contributed to the development of a Mobile Application called Place to be Ethiopia, an event-sharing platform with over 20,000 downloads on the Play Store",
+        "I contributed to the development of a Mobile Application called Place to be Ethiopia, an event-sharing platform with over 10,000 downloads on the Play Store",
         "Built a Telegram referral bot using Telegraf.js framework to promote both the mobile application and the Telegram channel, with integrated rewards for users.",
         "Played a key role in developing the mobile application using React Native.",
         "Skills: ReactNative · Telegraf.js  · Figma "
