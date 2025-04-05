@@ -584,7 +584,7 @@ export const projects = {
 
       links: {
         code: "https://github.com/Abenetwolde/ecommerce-tg-mini-app-bot",
-        video: "https://www.youtube.com/shorts/_lcuP0F7xFQ",
+        video: "https://www.youtube.com/watch?v=_lcuP0F7xFQ",
       visit: "http://t.me/TGCommerce1Bot"
       },
       blog:"https://www.linkedin.com/feed/update/urn:li:activity:7301113262123724802/"
