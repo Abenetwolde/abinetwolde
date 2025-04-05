@@ -2,7 +2,8 @@
 import './globals.css'
 import { Poppins } from '@next/font/google'
 import { ThemeProvider } from 'next-themes'
-import { Analytics } from '@vercel/analytics/react';
+// import { Analytics } from '@vercel/analytics/react';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import Loglib from "@loglib/tracker/react"
 const poppins = Poppins({
   subsets: ['latin'],
@@ -20,12 +21,14 @@ export default function RootLayout({
       <head />
       <ThemeProvider attribute='class' defaultTheme='light'>
         <body className={`${poppins.className} font-poppins bg-gray-100/50 dark:bg-grey-900 text-black dark:text-white overflow-x-hidden`}>
+        <GoogleAnalytics gaId={"G-ECDEKL29XG"} />
           {/* <body className='bg-gray-100/50 dark:bg-grey-900 text-black dark:text-white overflow-x-hidden'> */}
           {children}
           <Loglib config={{
                 id: "ewerwerwerqfsdfsdfsr" 
             }} />
-          <Analytics />
+            
+          {/* <Analytics /> */}
         </body>
       </ThemeProvider>
     </html>

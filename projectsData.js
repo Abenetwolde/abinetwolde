@@ -63,7 +63,18 @@ import imagecalc5 from './assets/calculator/image5.png';
               import place1 from './assets/placetobe/image1.png';
               import place12 from './assets/placetobe/image2.png';
               import place13 from './assets/placetobe/image3.png';
-              
+               
+              import tgminiapp1 from './assets/tgminiapp/1.png';
+              import tgminiapp2 from './assets/tgminiapp/2.png';
+              import tgminiapp3 from './assets/tgminiapp/3.png';
+              import tgminiapp4 from './assets/tgminiapp/4.png';
+              import tgminiapp5 from './assets/tgminiapp/5.png';
+              import tgminiapp6 from './assets/tgminiapp/6.png';
+import tgminiapp7 from './assets/tgminiapp/7.png';
+import tgminiapp8 from './assets/tgminiapp/8.png';
+import tgminiapp9 from './assets/tgminiapp/9.png';
+import insa from './assets/insa.jpeg';
+
 // import imagebot8 from './assets/ecommercebot/imagebot8.png';
 // import imagebot9 from './assets/ecommercebot/imagebot9.png';
 // import imagebot10 from './assets/ecommercebot/imagebot10.png';
@@ -94,7 +105,7 @@ export const projects = {
     "aboutImage": "https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg",
     "aboutImageCaption": "< Stick to your Guns 🚀/>",
     "title": "Full Stack Developer",
-    "about": "I am a Full-Stack developer based in Addis Ababa, Ethiopia. I'm passionate about creating beautiful, functional, and user-friendly Websites, Mobile Applications, and Telegram Bots. I'm constantly pushing myself to learn and grow as a developer. Love building full-stack Ethiopian clones and side projects.",
+    "about": "I am a visionary at heart, always driven by a desire to tackle meaningful challenges through technology.\n My curiosity for software development began early and continues to fuel my passion today. As a Full Stack Developer, I specialize in React.js, React Native, Node.js, Telegram bot development, and graphic design—bringing both creativity and technical expertise to every project. I’ve worked extensively on web and mobile applications, always aiming to craft user-friendly, impactful solutions.",
     "callUrl": "",
     "resumeUrl": "https://drive.google.com/file/d/1rwtIidd3hZ3T50BlC88RIjunN8lwoOzo/view?usp=sharing"
   },
@@ -179,14 +190,15 @@ export const projects = {
     },
 
 
-    {
-      "name": "NodeJS",
-      "image": "https://jigarsable.vercel.app/_next/image?url=https%3A%2F%2Fimg.icons8.com%2Ffluency%2F144%2Fnull%2Fnode-js.png&w=128&q=75",
-      "category": "Backend"
-    },
+ 
     {
       "name": "ExpressJS",
       "image": "https://jigarsable.vercel.app/_next/image?url=https%3A%2F%2Fimg.icons8.com%2Fios%2F150%2Fnull%2Fexpress-js.png&w=128&q=75",
+      "category": "Backend"
+    },
+    {
+      "name": "Django",
+      // "image": "https://logodix.com/logo/1758694.png",
       "category": "Backend"
     },
     {
@@ -564,6 +576,19 @@ export const projects = {
       blog:"https://www.linkedin.com/feed/update/urn:li:activity:7234514026720825344/"
     },
  
+    {
+      name: "Telegram Mini App",
+      techstack: "ReactJS, NodeJS, MongoDB, TelegrafJS, Telegam Mini App",
+      category: "My Favorites",
+      images: [tgminiapp1,tgminiapp2,tgminiapp3,tgminiapp4,tgminiapp5,tgminiapp6,tgminiapp7,tgminiapp8,tgminiapp9],
+
+      links: {
+        code: "https://github.com/Abenetwolde/ecommerce-tg-mini-app-bot",
+        video: "https://www.youtube.com/shorts/_lcuP0F7xFQ",
+      visit: "http://t.me/TGCommerce1Bot"
+      },
+      blog:"https://www.linkedin.com/feed/update/urn:li:activity:7301113262123724802/"
+    },
   ],
   educations: [
     {
@@ -572,7 +597,7 @@ export const projects = {
       "degree": "Infromation System",
       "duration": "2020 - 2022",
       "desc": [
-        "Proficient in DNS and DHCP configuration,and Access Role Management.",
+        "Good in DNS and DHCP configuration,and Access Role Management.",
         "Adept at Network configuring and troubleshooting networks",
         "Experienced in maintaining and troubleshooting hardware"
       ]
@@ -604,7 +629,7 @@ export const projects = {
       ]
     },
     {
-      "logo":"https://media.licdn.com/dms/image/v2/C4D0BAQEo8wzX1GwQUw/company-logo_200_200/company-logo_200_200/0/1630498738280/information_network_security_agency_logo?e=1738800000&v=beta&t=jMYWbGD7gO_oQOxyKbJTRYO3TjxY0-zTgu-BURWvB1M",
+      "logo":"https://i0.wp.com/ethiopianstoday.com/wp-content/uploads/2021/06/INSA.jpg?resize=640%2C640&ssl=1",
       "company": "Information Network Security Administrator",
       "position": "Software Application Developer",
       "duration": "2022 - Present",

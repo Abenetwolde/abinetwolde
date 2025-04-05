@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-scroll";
 import SectionWrapper from "../SectionWrapper";
 import ProjectCard from "./ProjectCard";
-
+import { event } from "@/lib/gtag";
 interface Props {
     projectsData: project[]
 }
@@ -26,6 +26,12 @@ const Projects = ({ projectsData }: Props) => {
         setCategory(cat)
         // cat === "All" ? setFilteredProjects(projects) :
         setFilteredProjects(projects.filter((p: project) => p.category.toLowerCase() === cat.toLowerCase()));
+        event({
+            action: "click",
+            category: "Project Category",
+            label: cat,
+            value: 1,
+          });
     }
 
     useEffect(() => {

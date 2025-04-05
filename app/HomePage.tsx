@@ -22,8 +22,9 @@ const HomePage = ({ data }: Props) => {
             <Hero mainData={data.main} />
             <Socials socials={data.socials} />
             <About aboutData={data.about} name={data.main.name} />
-            <Skills skillData={data.skills} />
+          
             <Projects projectsData={data.projects} />
+            <Skills skillData={data.skills} />
             <Experiences experienceData={data.experiences} educationData={data.educations} />
             <Contact />
             {/* <CallToAction /> */}

@@ -24,13 +24,14 @@ import 'swiper/css/autoplay';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import React from "react";
+import { event } from "@/lib/gtag";
 const cardVariants = {
     hidden: { y: 50, opacity: 0 },
     visible: { y: 0, opacity: 1, transition: { duration: 0.6, ease: 'easeInOut' } }
 };
 
-const Project = ({ name, images, blog,category, techstack, links, discription }: project) => {
- 
+const Project = ({ name, images, blog, category, techstack, links, discription }: project) => {
+
     const [ref, inView] = useInView({
         threshold: 0.2,
         triggerOnce: true
@@ -46,6 +47,12 @@ const Project = ({ name, images, blog,category, techstack, links, discription }:
 
     const handleModalOpen = (type: any) => {
         setOpenModal({ ...openModal, [type]: true });
+        event({
+            action: "open_modal",
+            category: "Project",
+            label: `${name} - ${type}`, // e.g., "Project X - photos"
+            value: 1,
+        });
     };
 
     const handleModalClose = (type: any) => {
@@ -53,7 +60,15 @@ const Project = ({ name, images, blog,category, techstack, links, discription }:
     };
     const toggleOverlay = () => {
         setOverlayVisible(!isOverlayVisible);
+        event({
+            action: "click",
+            category: "Project",
+            label: name, // Project name as label
+            value: 1,
+        });
     };
+
+
     return (
         <motion.div
             ref={ref}
@@ -113,14 +128,28 @@ const Project = ({ name, images, blog,category, techstack, links, discription }:
                         )}
                         {links?.visit?.trim() && (
                             <Tooltip placement='top' title="Visit Site" arrow>
-                                <Link href={links.visit} target="_blank" className="bg-white text-black p-2 rounded-lg hover:bg-black hover:text-white transition-all">
+                                <Link href={links.visit} onClick={() =>
+                                    event({
+                                        action: "click",
+                                        category: "Project Link",
+                                        label: `${name} - Visit Site`,
+                                        value: 1,
+                                    })
+                                } target="_blank" className="bg-white text-black p-2 rounded-lg hover:bg-black hover:text-white transition-all">
                                     <BiLinkExternal size={20} />
                                 </Link>
                             </Tooltip>
                         )}
                         {links?.code?.trim() && (
                             <Tooltip placement='top' title="View Code" arrow>
-                                <Link href={links.code} target="_blank" className="bg-white text-black p-2 rounded-lg hover:bg-black hover:text-white transition-all">
+                                <Link href={links.code} onClick={() =>
+                                    event({
+                                        action: "click",
+                                        category: "Github Link",
+                                        label: `${name} - github repo`,
+                                        value: 1,
+                                    })
+                                } target="_blank" className="bg-white text-black p-2 rounded-lg hover:bg-black hover:text-white transition-all">
                                     <FaGithub size={20} />
                                 </Link>
                             </Tooltip>
@@ -132,9 +161,16 @@ const Project = ({ name, images, blog,category, techstack, links, discription }:
             <div className="my-2 flex flex-col gap-3">
                 <h3 className="text-xl font-medium">{name}</h3>
                 <p className="text-sm text-gray-400"> <span className="font-medium">Tech Stack:</span> {techstack}</p>
-                <a href={blog} className="text-sm text-blue-500 underline hover:text-blue-700" target="_blank" rel="noopener noreferrer">
-  {blog&&<span className="font-medium">Read the Case Study</span> }
-</a>
+                <a href={blog} onClick={() =>
+                    event({
+                        action: "click",
+                        category: "Blog Link",
+                        label: `${name} - Blog Site`,
+                        value: 1,
+                    })
+                } className="text-sm text-blue-500 underline hover:text-blue-700" target="_blank" rel="noopener noreferrer">
+                    {blog && <span className="font-medium">Read the Case Study</span>}
+                </a>
             </div>
             <Dialog PaperProps={{
                 style: {
@@ -178,12 +214,12 @@ const Project = ({ name, images, blog,category, techstack, links, discription }:
                             flexDirection: 'column',
                             justifyContent: 'center',
                             alignItems: 'center',
-                          } ),
+                        }),
 
                     }}
                 >
                     <Swiper
-                 
+
                         modules={[Navigation, Pagination, Scrollbar, A11y]}
                         spaceBetween={0}
                         slidesPerView={1}

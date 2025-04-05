@@ -88,7 +88,7 @@ const Hero = ({ mainData }: HeroProps) => {
                             width={1000}
                             height={1000}
                             className="rounded-full w-full h-full object-cover"
-                            src={'/cartoon.jpg'}
+                            src={'/me2.png'}
                         />
                     </div>
 
