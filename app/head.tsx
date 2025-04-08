@@ -19,6 +19,7 @@ export default function Head() {
       <meta name="apple-mobile-web-app-title" content="Portfolio | Abnet Wolde - Full Stack Developer" />
       <link rel="icon" href="/favicon.ico" />
       <title>Portfolio | Abnet Wolde - Full Stack Developer</title>
+      
     </>
   )
 }

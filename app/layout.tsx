@@ -24,7 +24,7 @@ export default function RootLayout({
       <head/>
       <ThemeProvider attribute='class' defaultTheme='light'>
         <body className={`${poppins.className} font-poppins bg-gray-100/50 dark:bg-grey-900 text-black dark:text-white overflow-x-hidden`}>
-        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-ECDEKL29XG"></Script>
+        {/* <Script async src="https://www.googletagmanager.com/gtag/js?id=G-ECDEKL29XG"></Script>
         <Script
           dangerouslySetInnerHTML={{
             __html: `
@@ -34,14 +34,21 @@ export default function RootLayout({
               gtag('config', 'G-ECDEKL29XG');
             `,
           }}
-        />
+        /> */}
         {/* <GoogleAnalytics gaId={"G-ECDEKL29XG"} /> */}
           {/* <body className='bg-gray-100/50 dark:bg-grey-900 text-black dark:text-white overflow-x-hidden'> */}
           {children}
           {/* <Loglib config={{
                 id: "ewerwerwerqfsdfsdfsr" 
             }} /> */}
-            
+            <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=G-ECDEKL29XG"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
           {/* <Analytics /> */}
         </body>
       </ThemeProvider>
