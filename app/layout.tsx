@@ -24,17 +24,17 @@ export default function RootLayout({
       <head/>
       <ThemeProvider attribute='class' defaultTheme='light'>
         <body className={`${poppins.className} font-poppins bg-gray-100/50 dark:bg-grey-900 text-black dark:text-white overflow-x-hidden`}>
-        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-ECDEKL29XG"></Script>
-        <Script
-          dangerouslySetInnerHTML={{
-            __html: `
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-ECDEKL29XG"/>
+   
+        <Script id="loglib" strategy="afterInteractive">
+{` 
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', 'G-ECDEKL29XG');
-            `,
-          }}
-        />
+            ,
+        `}
+        </Script>
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=G-ECDEKL29XG"
