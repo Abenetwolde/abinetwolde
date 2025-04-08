@@ -35,12 +35,12 @@ export default function RootLayout({
             `,
           }}
         />
-        <GoogleAnalytics gaId={"G-ECDEKL29XG"} />
+        {/* <GoogleAnalytics gaId={"G-ECDEKL29XG"} /> */}
           {/* <body className='bg-gray-100/50 dark:bg-grey-900 text-black dark:text-white overflow-x-hidden'> */}
           {children}
-          <Loglib config={{
+          {/* <Loglib config={{
                 id: "ewerwerwerqfsdfsdfsr" 
-            }} />
+            }} /> */}
             
           {/* <Analytics /> */}
         </body>
