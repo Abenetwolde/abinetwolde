@@ -2,6 +2,7 @@
 import './globals.css'
 import { Poppins } from '@next/font/google'
 import { ThemeProvider } from 'next-themes'
+import Script from 'next/script';
 // import { Analytics } from '@vercel/analytics/react';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import Loglib from "@loglib/tracker/react"
@@ -18,9 +19,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-    <head>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-ECDEKL29XG"></script>
-        <script
+
+ 
+      <head/>
+      <ThemeProvider attribute='class' defaultTheme='light'>
+        <body className={`${poppins.className} font-poppins bg-gray-100/50 dark:bg-grey-900 text-black dark:text-white overflow-x-hidden`}>
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-ECDEKL29XG"></Script>
+        <Script
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
@@ -30,9 +35,6 @@ export default function RootLayout({
             `,
           }}
         />
-      </head>
-      <ThemeProvider attribute='class' defaultTheme='light'>
-        <body className={`${poppins.className} font-poppins bg-gray-100/50 dark:bg-grey-900 text-black dark:text-white overflow-x-hidden`}>
         <GoogleAnalytics gaId={"G-ECDEKL29XG"} />
           {/* <body className='bg-gray-100/50 dark:bg-grey-900 text-black dark:text-white overflow-x-hidden'> */}
           {children}
