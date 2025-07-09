@@ -2,8 +2,9 @@
 import './globals.css'
 import { Poppins } from '@next/font/google'
 import { ThemeProvider } from 'next-themes'
+// import { Analytics } from "@vercel/analytics/next"
 import Script from 'next/script';
-// import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from '@vercel/analytics/react';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import Loglib from "@loglib/tracker/react"
 const poppins = Poppins({
@@ -50,7 +51,7 @@ export default function RootLayout({
                 id: "ewerwerwerqfsdfsdfsr" 
             }} /> */}
             
-          {/* <Analytics /> */}
+          <Analytics />
         </body>
       </ThemeProvider>
     </html>
