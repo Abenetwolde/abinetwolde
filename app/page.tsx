@@ -14,10 +14,17 @@ import {projects} from "./../projectsData.js"
 //   const data = res.json()
 //   return data
 // }
-
+  export async function getStaticProps() {
+  return {
+    props: {
+      alldatas: projects, // Pass static data as props
+    },
+  };
+}
 export default async function page() {
 const alldatas:any=projects
   // const data = await getData()
+
 
   return (
     <>
