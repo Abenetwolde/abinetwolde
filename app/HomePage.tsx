@@ -1,36 +1,54 @@
 'use client';
+
+import dynamic from "next/dynamic";
 import { data } from "@/types/main";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
-import Skills from "@/components/skills/Skills";
-import Projects from "@/components/projects/Projects";
 import Socials from "@/components/Socials";
-import Experiences from "@/components/experiences/Experiences";
 import Contact from "@/components/Contact";
-import CallToAction from "@/components/CallToAction";
 import Header from "./Header";
 import Footer from "./Footer";
 
+// Dynamically import large/heavy sections
+const Projects = dynamic(() => import("@/components/projects/Projects"), {
+  loading: () => <p>Loading projects...</p>, // Optional fallback
+  ssr: false // If you want to disable server-side rendering for this component
+});
+
+const Skills = dynamic(() => import("@/components/skills/Skills"), {
+  loading: () => <p>Loading skills...</p>,
+  ssr: false
+});
+
+const Experiences = dynamic(() => import("@/components/experiences/Experiences"), {
+  loading: () => <p>Loading experiences...</p>,
+  ssr: false
+});
+
 interface Props {
-    data: data,
+  data: any;
 }
 
 const HomePage = ({ data }: Props) => {
-    return (
-        <>
-            <Header logo={data.main.name} />
-            <Hero mainData={data.main} />
-            <Socials socials={data.socials} />
-            <About aboutData={data.about} name={data.main.name} />
-          
-            <Projects projectsData={data.projects} />
-            <Skills skillData={data.skills} />
-            <Experiences experienceData={data.experiences} educationData={data.educations} />
-            <Contact />
-            {/* <CallToAction /> */}
-            <Footer socials={data.socials} name={data.main.name} />
-        </>
-    )
-}
+  return (
+    <>
+      <Header logo={data.main.name} />
+      <Hero mainData={data.main} />
+      <Socials socials={data.socials} />
+      <About aboutData={data.about} name={data.main.name} />
+      
+      {/* These sections load only when the user scrolls near them */}
+      <Projects projectsData={data.projects} />
+      <Skills skillData={data.skills} />
+      <Experiences
+        experienceData={data.experiences}
+        educationData={data.educations}
+      />
 
-export default HomePage
+      {/* <Contact /> */}
+      <Footer socials={data.socials} name={data.main.name} />
+    </>
+  );
+};
+
+export default HomePage;

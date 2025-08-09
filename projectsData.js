@@ -74,6 +74,11 @@ import tgminiapp7 from './assets/tgminiapp/7.png';
 import tgminiapp8 from './assets/tgminiapp/8.png';
 import tgminiapp9 from './assets/tgminiapp/9.png';
 import insa from './assets/insa.jpeg';
+import npm1 from './assets/npm/image1.png';
+import npm2 from './assets/npm/image2.png';
+import npm3 from './assets/npm/image3.png';
+
+// import flutterImage from './assets/images/flutter-project.jpg';
 
 // import imagebot8 from './assets/ecommercebot/imagebot8.png';
 // import imagebot9 from './assets/ecommercebot/imagebot9.png';
@@ -107,7 +112,7 @@ export const projects = {
     "title": "Full Stack Developer",
     "about": "I am a visionary at heart, always driven by a desire to tackle meaningful challenges through technology.\n My curiosity for software development began early and continues to fuel my passion today. As a Full Stack Developer, I specialize in React.js, React Native, Node.js, Telegram bot development, and graphic design—bringing both creativity and technical expertise to every project. I’ve worked extensively on web and mobile applications, always aiming to craft user-friendly, impactful solutions.",
     "callUrl": "",
-    "resumeUrl": "https://drive.google.com/file/d/1rwtIidd3hZ3T50BlC88RIjunN8lwoOzo/view?usp=sharing"
+    "resumeUrl": "https://drive.google.com/file/d/1yhdgVTxQSeN5dU_kNxn0bWOHMn_OIIDk/view?usp=sharing"
   },
   socials: [
     {
@@ -575,7 +580,19 @@ export const projects = {
       },
       blog:"https://www.linkedin.com/feed/update/urn:li:activity:7234514026720825344/"
     },
- 
+   {
+      name: "npm library: ethiopia-svg-map ",
+      techstack: "ReactJS, NPM, SVG",
+      category: "My Favorites",
+      images: [npm1,npm2,npm3],
+
+      links: {
+        code: "https://github.com/Abenetwolde/ethiopian-svg-map-npm-library.git",
+      
+      visit: "https://www.npmjs.com/package/ethiopia-svg-map"
+      },
+      blog:"https://www.linkedin.com/posts/abnet-wolde-8b3923220_i-released-a-react-component-npm-library-activity-7348969716595490816-u5xW?utm_source=share&utm_medium=member_desktop&rcm=ACoAADeqZ0cBcAbKdx9ntjVPhItkHpLShv20ZT4"
+    },
     {
       name: "Telegram Mini App",
       techstack: "ReactJS, NodeJS, MongoDB, TelegrafJS, Telegam Mini App",

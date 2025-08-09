@@ -169,7 +169,7 @@ const Project = ({ name, images, blog, category, techstack, links, discription }
                         value: 1,
                     })
                 } className="text-sm text-blue-500 underline hover:text-blue-700" target="_blank" rel="noopener noreferrer">
-                    {blog && <span className="font-medium">Read the Case Study</span>}
+                    {blog && <span className="font-medium">Read the Blog</span>}
                 </a>
             </div>
             <Dialog PaperProps={{
