@@ -37,17 +37,17 @@ const SectionLoading = ({ sectionName }: { sectionName: string }) => (
 
 // Dynamically import large/heavy sections
 const Projects = dynamic(() => import("@/components/projects/Projects"), {
-  loading: () => <SectionLoading sectionName="projects" />,
+
   ssr: false,
 });
 
 const Skills = dynamic(() => import("@/components/skills/Skills"), {
-  loading: () => <SectionLoading sectionName="Skills" />,
+ 
   ssr: false,
 });
 
 const Experiences = dynamic(() => import("@/components/experiences/Experiences"), {
-  loading: () => <SectionLoading sectionName="experiences" />,
+
   ssr: false,
 });
 
@@ -104,11 +104,9 @@ const HomePage = ({ data }: Props) => {
       {/* Use LazyLoad for Hero section */}
      <Header logo={data.main.name} />
       {/* Use LazyLoad for Hero section */}
-      <LazyLoad fallback={<SectionLoading sectionName="hero" />}>
-        <Suspense fallback={<SectionLoading sectionName="hero" />}>
+
           <Hero mainData={data.main} />
-        </Suspense>
-      </LazyLoad>
+   
 
       <Socials socials={data.socials} />
       {/* Wrap About section in LazyLoad and Suspense */}
