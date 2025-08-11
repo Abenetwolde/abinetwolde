@@ -1,55 +1,50 @@
 'use client';
-import './globals.css'
-import { Poppins } from '@next/font/google'
-import { ThemeProvider } from 'next-themes'
-// import { Analytics } from "@vercel/analytics/next"
+import './globals.css';
+import { Poppins } from '@next/font/google';
+import { ThemeProvider } from 'next-themes';
 import Script from 'next/script';
 import { Analytics } from '@vercel/analytics/react';
 import { GoogleAnalytics } from '@next/third-parties/google';
-import Loglib from "@loglib/tracker/react"
+
 const poppins = Poppins({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700', '800'],
-  variable: '--font-poppins'
-})
+  variable: '--font-poppins',
+});
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-
- 
-      <head/>
-      <ThemeProvider attribute='class' defaultTheme='light'>
+      <head />
+      <ThemeProvider attribute="class" defaultTheme="light">
         <body className={`${poppins.className} font-poppins bg-gray-100/50 dark:bg-grey-900 text-black dark:text-white overflow-x-hidden`}>
-        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-ECDEKL29XG"/>
-   
-        <Script id="loglib" strategy="afterInteractive">
-{` 
+          <Script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID || 'G-ECDEKL29XG'}`}
+          />
+          <Script
+            id="gtag-init"
+            strategy="afterInteractive"
+          >
+            {`
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-ECDEKL29XG');
-            ,
-        `}
-        </Script>
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=G-ECDEKL29XG"
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          />
-        </noscript>
-      
+              gtag('config', '${process.env.NEXT_PUBLIC_GA_ID || 'G-ECDEKL29XG'}');
+            `}
+          </Script>
+          <noscript>
+            <iframe
+              src={`https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_PUBLIC_GA_ID || 'G-ECDEKL29XG'}`}
+              height="0"
+              width="0"
+              style={{ display: "none", visibility: "hidden" }}
+            />
+          </noscript>
           {children}
-
           <Analytics />
         </body>
       </ThemeProvider>
     </html>
-  )
+  );
 }
