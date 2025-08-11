@@ -95,7 +95,7 @@ export const projects = {
     "titles": [
       "Full Stack Web Development",
       "Telegram Bot Development",
-      "ReactNative Development"
+      "Mobile Applciation Development"
     ],
     "heroImage": "https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg",
     "techStackImages": [

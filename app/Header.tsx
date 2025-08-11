@@ -21,7 +21,7 @@ export default function Header({ logo }: { logo: string }) {
     return () => window.removeEventListener("scroll", updateScroll); // Cleanup
   }, []);
 
-  const navs = ["home", "about", "projects", "experience", "contact"];
+  const navs = ["home", "about", "projects","skills", "experience",];
 
   // Function to track navigation link clicks
   const handleNavClick = (nav: string) => {
@@ -66,7 +66,7 @@ export default function Header({ logo }: { logo: string }) {
       <nav className="lg:w-11/12 2xl:w-4/5 w-full md:px-6 2xl:px-0 mx-auto py-4 hidden sm:flex items-center justify-between">
         <Link
           href={"/"}
-          className="2xl:ml-6 hover:text-violet-700 hover:dark:text-violet-500 transition-colors duration-300"
+          className="2xl:ml-6 hover:text-pink-700 hover:dark:text-pink-500 transition-colors duration-300"
           onClick={() => handleNavClick("home")} // Track logo click as "home"
         >
           {logo === "Jigar Sable" ? (
@@ -75,13 +75,15 @@ export default function Header({ logo }: { logo: string }) {
             <span className="text-lg font-medium">{logo.split(" ")[0]}</span>
           )}
         </Link>
-
         <ul className="flex items-center gap-8">
           {navs.map((e, i) => (
             <li key={i}>
               <ScrollLink
-                className="hover:text-violet-700 hover:dark:text-violet-500 transition-colors capitalize cursor-pointer"
+                className="hover:text-pink-700 hover:dark:text-pink-500 transition-colors capitalize cursor-pointer"
+                activeClass="text-pink-700 dark:text-pink-500 font-semibold" // Optional: Highlight active link
                 to={e}
+                spy={true} // Track when section is in view
+                hashSpy={true} // Update URL hash to show path (e.g., /#about)
                 offset={-60}
                 smooth={true}
                 duration={500}
@@ -94,13 +96,12 @@ export default function Header({ logo }: { logo: string }) {
           ))}
           <span
             onClick={handleThemeToggle} // Track theme toggle
-            className="hover:bg-gray-100 hover:dark:bg-violet-700 p-1.5 rounded-full cursor-pointer transition-colors"
+            className="hover:bg-gray-100 hover:dark:bg-pink-700 p-1.5 rounded-full cursor-pointer transition-colors"
           >
             {theme === "dark" ? <FiSun /> : <FiMoon />}
           </span>
         </ul>
       </nav>
-
       <nav className="p-4 flex sm:hidden items-center justify-between">
         <Link
           href={"/"}
@@ -115,33 +116,33 @@ export default function Header({ logo }: { logo: string }) {
         <div className="flex items-center gap-4">
           <span
             onClick={handleThemeToggle} // Track theme toggle
-            className="bg-gray-100 dark:bg-violet-700 p-1.5 rounded-full cursor-pointer transition-colors"
+            className="bg-gray-100 dark:bg-pink-700 p-1.5 rounded-full cursor-pointer transition-colors"
           >
             {theme === "dark" ? <FiSun /> : <FiMoon />}
           </span>
           <CgMenuRight size={20} onClick={() => handleMenuToggle(true)} /> {/* Track menu open */}
         </div>
       </nav>
-
       <div
         className={`flex min-h-screen w-screen absolute md:hidden top-0 ${
           !navCollapse ? "right-0" : "right-[-100%]"
         } bottom-0 z-50 ease-in duration-300`}
       >
         <div className="w-1/4" onClick={() => handleMenuToggle(false)}></div> {/* Track menu close */}
-
         <div className="flex flex-col p-4 gap-5 bg-gray-100/95 backdrop-filter backdrop-blur-sm dark:bg-grey-900/95 w-3/4">
           <CgClose
             className="self-end my-2"
             size={20}
             onClick={() => handleMenuToggle(false)} // Track menu close
           />
-
           {navs.slice(0, 4).map((e) => (
             <ScrollLink
               key={e}
-              className="hover:text-purple-600 py-1.5 px-4 rounded transition-colors capitalize cursor-pointer"
+              className="hover:text-pink-600 py-1.5 px-4 rounded transition-colors capitalize cursor-pointer"
+              activeClass="text-pink-700 dark:text-pink-500 font-semibold" // Optional: Highlight active link
               to={e}
+              spy={true} // Track when section is in view
+              hashSpy={true} // Update URL hash to show path (e.g., /#about)
               offset={-60}
               smooth={true}
               duration={500}
@@ -153,11 +154,14 @@ export default function Header({ logo }: { logo: string }) {
           ))}
           <ScrollLink
             to="contact"
+            activeClass="text-pink-700 dark:text-pink-500 font-semibold" // Optional: Highlight active link
+            spy={true} // Track when section is in view
+            hashSpy={true} // Update URL hash to show path (e.g., /#contact)
             offset={-60}
             smooth={true}
             duration={500}
             onClick={() => handleNavClick("contact")} // Track contact click
-            className="px-6 py-1.5 rounded-md bg-violet-600 hover:bg-violet-700 text-white text-center"
+            className="px-6 py-1.5 rounded-md bg-pink-600 hover:bg-pink-700 text-white text-center"
           >
             Contact
           </ScrollLink>

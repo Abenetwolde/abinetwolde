@@ -188,7 +188,7 @@ const Project = ({ name, images, blog, category, techstack, links, discription }
                         padding: '8px'
                     }}
                 >
-                    Photos
+                    Screenshots of {name}
                     <Button
                         onClick={() => handleModalClose("photos")}
                         variant="contained"
@@ -226,14 +226,21 @@ const Project = ({ name, images, blog, category, techstack, links, discription }
                         navigation
                         pagination={{ clickable: true }}
                         scrollbar={{ draggable: true }}
+                        loop={true} // Enable looping
                         // onSlideChange={() => console.log('slide change')}
                         // onSwiper={(swiper) => console.log(swiper)}
-                        style={{
-                            height: 'auto',
-                            width: '100%',
-                            // height: '100%',
-                            paddingBottom: '2rem' // Extra space for pagination controls
-                        }}
+                         style={{
+            height: "auto",
+            width: "100%",
+            backgroundColor: "#f5f5f5", // Light gray background
+            paddingBottom: "3rem", // Extra space for pagination controls
+            "--swiper-navigation-size": "2.5rem", // Increase arrow size
+            "--swiper-navigation-color": "#333", // Darker arrow color for visibility
+            "--swiper-navigation-background-color": "rgba(255, 255, 255, 0.8)", // Semi-transparent background
+            "--swiper-navigation-border-radius": "8px", // Rounded corners
+            "--swiper-navigation-padding": "1rem", // Larger clickable area
+          }}
+          className="custom-swiper" // Add a class for additional styling
                     >
                         {images?.map((image: any, index: any) => (
                             <SwiperSlide

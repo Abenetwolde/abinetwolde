@@ -32,12 +32,12 @@ html {
 .swiper-button-next,
 .swiper-button-prev {
   /* background-color: rgb(26, 129, 255); */
-  padding: 16px;
+  padding: 46px;
   border-radius: 100%;
   /* border: 2px solid grey; */
   /* width: 40px;
   height: 40px; */
-  color: rgb(242, 9, 242);
+  color: rgb(235, 12, 105);
 }
 .swiper-pagination-bullet{
   width: 10px;

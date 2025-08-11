@@ -201,7 +201,6 @@ const Hero = React.memo(function Hero({ mainData }: HeroProps) {
     <div className="absolute top-1/2 -left-20 -translate-y-1/2">{techNodes[3]}</div>
   </div>
 </div>
-
         </div>
       </div>
 
