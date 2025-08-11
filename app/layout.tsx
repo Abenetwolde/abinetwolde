@@ -44,13 +44,9 @@ export default function RootLayout({
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
-        {/* <GoogleAnalytics gaId={"G-ECDEKL29XG"} /> */}
-          {/* <body className='bg-gray-100/50 dark:bg-grey-900 text-black dark:text-white overflow-x-hidden'> */}
+      
           {children}
-          {/* <Loglib config={{
-                id: "ewerwerwerqfsdfsdfsr" 
-            }} /> */}
-            
+
           <Analytics />
         </body>
       </ThemeProvider>
