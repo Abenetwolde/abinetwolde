@@ -24,14 +24,14 @@ import 'swiper/css/autoplay';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import React from "react";
-import { event } from "@/lib/gtag";
+import { event ,useGtag} from "@/lib/gtag";
 const cardVariants = {
     hidden: { y: 50, opacity: 0 },
     visible: { y: 0, opacity: 1, transition: { duration: 0.6, ease: 'easeInOut' } }
 };
 
 const Project = ({ name, images, blog, category, techstack, links, discription }: project) => {
-
+const isGtagReady = useGtag();
     const [ref, inView] = useInView({
         threshold: 0.2,
         triggerOnce: true
@@ -44,31 +44,41 @@ const Project = ({ name, images, blog, category, techstack, links, discription }
         site: false,
         code: false
     });
+const handleModalOpen = (type: string) => {
+    setOpenModal({ ...openModal, [type]: true });
+    if (isGtagReady) {
+      event({
+        action: "open_modal",
+        category: "Project",
+        label: `${name} - ${type}`, // e.g., "Project X - photos"
+        value: 1,
+      });
+    }
+  };
 
-    const handleModalOpen = (type: any) => {
-        setOpenModal({ ...openModal, [type]: true });
-        event({
-            action: "open_modal",
-            category: "Project",
-            label: `${name} - ${type}`, // e.g., "Project X - photos"
-            value: 1,
-        });
-    };
+  const handleModalClose = (type: string) => {
+    setOpenModal({ ...openModal, [type]: false });
+    if (isGtagReady) {
+      event({
+        action: "close_modal",
+        category: "Project",
+        label: `${name} - ${type}`, // e.g., "Project X - photos"
+        value: 1,
+      });
+    }
+  };
 
-    const handleModalClose = (type: any) => {
-        setOpenModal({ ...openModal, [type]: false });
-    };
-    const toggleOverlay = () => {
-        setOverlayVisible(!isOverlayVisible);
-        event({
-            action: "click",
-            category: "Project",
-            label: name, // Project name as label
-            value: 1,
-        });
-    };
-
-
+  const toggleOverlay = () => {
+    setOverlayVisible(!isOverlayVisible);
+    if (isGtagReady) {
+      event({
+        action: "click",
+        category: "Project",
+        label: name, // Project name as label
+        value: 1,
+      });
+    }
+  };
     return (
         <motion.div
             ref={ref}

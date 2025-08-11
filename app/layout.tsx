@@ -5,6 +5,7 @@ import { ThemeProvider } from 'next-themes';
 import Script from 'next/script';
 import { Analytics } from '@vercel/analytics/react';
 import { GoogleAnalytics } from '@next/third-parties/google';
+import GAListener from './ga-tracker';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -20,28 +21,33 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <body className={`${poppins.className} font-poppins bg-gray-100/50 dark:bg-grey-900 text-black dark:text-white overflow-x-hidden`}>
           <Script
             async
-            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID || 'G-ECDEKL29XG'}`}
+            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID }`}
           />
-          <Script
-            id="gtag-init"
-            strategy="afterInteractive"
-          >
-            {`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${process.env.NEXT_PUBLIC_GA_ID || 'G-ECDEKL29XG'}');
-            `}
-          </Script>
-          <noscript>
+     <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', {
+                  page_path: window.location.pathname,
+                });
+              `,
+            }}
+        />
+          {/* <noscript>
             <iframe
               src={`https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_PUBLIC_GA_ID || 'G-ECDEKL29XG'}`}
               height="0"
               width="0"
               style={{ display: "none", visibility: "hidden" }}
             />
-          </noscript>
+          </noscript> */}
+            <GAListener />
           {children}
+          
           <Analytics />
         </body>
       </ThemeProvider>
