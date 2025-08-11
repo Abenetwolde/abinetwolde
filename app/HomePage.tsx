@@ -8,9 +8,8 @@ import Socials from "@/components/Socials";
 import Contact from "@/components/Contact";
 import Header from "./Header";
 import Footer from "./Footer";
-import { useEffect, Suspense, useRef, useState } from "react";
+import { useEffect } from "react";
 import { Box, CircularProgress } from "@mui/material";
-// Reusable loading component
 const SectionLoading = ({ sectionName }: { sectionName: string }) => (
   <Box
     sx={{
@@ -34,109 +33,49 @@ const SectionLoading = ({ sectionName }: { sectionName: string }) => (
     </span>
   </Box>
 );
-
 // Dynamically import large/heavy sections
 const Projects = dynamic(() => import("@/components/projects/Projects"), {
-
-  ssr: false,
+  loading: () => <SectionLoading sectionName="Projects" />, // Optional fallback
+  ssr: false // If you want to disable server-side rendering for this component
 });
 
 const Skills = dynamic(() => import("@/components/skills/Skills"), {
- 
-  ssr: false,
+   loading: () => <SectionLoading sectionName="Skills" />,
+  ssr: false
 });
 
 const Experiences = dynamic(() => import("@/components/experiences/Experiences"), {
-
-  ssr: false,
+  loading: () => <SectionLoading sectionName="Experiences" />,
+  ssr: false
 });
 
 interface Props {
   data: any;
 }
 
-// Custom LazyLoad component using IntersectionObserver
-const LazyLoad = ({ children, fallback }: { children: React.ReactNode; fallback: React.ReactNode }) => {
-  const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect(); // Stop observing once loaded
-        }
-      },
-      {
-        rootMargin: "200px", // Load when within 200px of viewport (preloads slightly early)
-        threshold: 0.1, // Trigger when 10% visible
-      }
-    );
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
-    };
-  }, []);
-
-  return <div ref={ref}>{isVisible ? children : fallback}</div>;
-};
-
 const HomePage = ({ data }: Props) => {
   useEffect(() => {
-    const handleHashChange = () => {
-      // Send to your analytics tool, e.g., via a custom event or Loglib API
-      console.log('Current path:', window.location.hash); // Placeholder for analytics send
-    };
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
-  }, []);
-
+  const handleHashChange = () => {
+    // Send to your analytics tool, e.g., via a custom event or Loglib API
+    console.log('Current path:', window.location.hash); // Placeholder for analytics send
+  };
+  window.addEventListener('hashchange', handleHashChange);
+  return () => window.removeEventListener('hashchange', handleHashChange);
+}, []);
   return (
     <>
       <Header logo={data.main.name} />
-      {/* Use LazyLoad for Hero section */}
-     <Header logo={data.main.name} />
-      {/* Use LazyLoad for Hero section */}
-
-          <Hero mainData={data.main} />
-   
-
+      <Hero mainData={data.main} />
       <Socials socials={data.socials} />
-      {/* Wrap About section in LazyLoad and Suspense */}
-      <LazyLoad fallback={<SectionLoading sectionName="about" />}>
-        <Suspense fallback={<SectionLoading sectionName="about" />}>
-          <About aboutData={data.about} name={data.main.name} />
-        </Suspense>
-      </LazyLoad>
-
-      {/* Wrap dynamic sections in LazyLoad and Suspense */}
-      <Suspense fallback={<SectionLoading sectionName="projects" />}>
-        <LazyLoad fallback={<SectionLoading sectionName="projects" />}>
-          <Projects projectsData={data.projects} />
-        </LazyLoad>
-      </Suspense>
-
-      <Suspense fallback={<SectionLoading sectionName="skills" />}>
-        <LazyLoad fallback={<SectionLoading sectionName="skills" />}>
-          <Skills skillData={data.skills} />
-        </LazyLoad>
-      </Suspense>
-
-      <Suspense fallback={<SectionLoading sectionName="experiences" />}>
-        <LazyLoad fallback={<SectionLoading sectionName="experiences" />}>
-          <Experiences
-            experienceData={data.experiences}
-            educationData={data.educations}
-          />
-        </LazyLoad>
-      </Suspense>
+      <About aboutData={data.about} name={data.main.name} />
+      
+      {/* These sections load only when the user scrolls near them */}
+      <Projects projectsData={data.projects} />
+      <Skills skillData={data.skills} />
+      <Experiences
+        experienceData={data.experiences}
+        educationData={data.educations}
+      />
 
       {/* <Contact /> */}
       <Footer socials={data.socials} name={data.main.name} />
