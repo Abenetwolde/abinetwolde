@@ -18,19 +18,34 @@ export function Contact({ socials }: ContactProps) {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState('')
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setError('')
     
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-    
-    setIsSubmitting(false)
-    setSubmitted(true)
-    setFormState({ name: '', email: '', message: '' })
-    
-    setTimeout(() => setSubmitted(false), 3000)
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formState),
+      })
+      
+      const data = await response.json()
+      
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message')
+      }
+      
+      setSubmitted(true)
+      setFormState({ name: '', email: '', message: '' })
+      setTimeout(() => setSubmitted(false), 5000)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to send message')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -131,9 +146,21 @@ export function Contact({ socials }: ContactProps) {
               />
             </div>
 
+            {error && (
+              <div className="rounded-lg bg-red-500/10 p-3 text-sm text-red-500">
+                {error}
+              </div>
+            )}
+
+            {submitted && (
+              <div className="rounded-lg bg-green-500/10 p-3 text-sm text-green-500">
+                Thank you! Your message has been sent successfully.
+              </div>
+            )}
+
             <button
               type="submit"
-              disabled={isSubmitting}
+              disabled={isSubmitting || submitted}
               className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 font-medium text-primary-foreground transition-colors hover:bg-primary/90 disabled:opacity-50"
             >
               {isSubmitting ? (
