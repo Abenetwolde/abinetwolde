@@ -2,6 +2,7 @@
 const nextConfig = {
   images: {
     remotePatterns: [
+      { protocol: 'https', hostname: 'zfievjxkmubnokerecys.supabase.co' },
       { protocol: 'https', hostname: 'media.licdn.com' },
       { protocol: 'https', hostname: 'logodix.com' },
       { protocol: 'https', hostname: 'res.cloudinary.com' },

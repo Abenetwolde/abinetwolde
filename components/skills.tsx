@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useMemo } from 'react'
-import Image from 'next/image'
 import { Section } from './ui/section'
 import { cn } from '@/lib/utils'
 import type { Skill } from '@/lib/types'
@@ -63,12 +62,12 @@ function SkillCard({ skill }: { skill: Skill }) {
     <div className="group flex flex-col items-center gap-3 rounded-xl bg-card p-4 transition-all hover:-translate-y-1 hover:shadow-lg">
       <div className="relative h-12 w-12 transition-transform group-hover:scale-110">
         {skill.image ? (
-          <Image
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
             src={skill.image}
             alt={skill.name}
-            fill
-            className="object-contain"
-            sizes="48px"
+            className="h-full w-full object-contain"
+            loading="lazy"
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center rounded-lg bg-primary/10 text-lg font-bold text-primary">

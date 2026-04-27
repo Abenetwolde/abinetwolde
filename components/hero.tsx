@@ -85,12 +85,12 @@ export function Hero({ profile, socials }: HeroProps) {
                     key={i}
                     className={`absolute ${positions[i]} hidden h-12 w-12 items-center justify-center rounded-full border border-border bg-card shadow-lg md:flex`}
                   >
-                    <Image
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
                       src={src}
                       alt={`Tech ${i + 1}`}
-                      width={32}
-                      height={32}
                       className="h-8 w-8 object-contain"
+                      loading="lazy"
                     />
                   </div>
                 )
