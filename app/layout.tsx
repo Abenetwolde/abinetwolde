@@ -1,61 +1,50 @@
-'use client';
-import './globals.css';
-import { Poppins } from '@next/font/google';
-import { ThemeProvider } from 'next-themes';
-import Script from 'next/script';
-import { Analytics } from '@vercel/analytics/react';
-import { GoogleAnalytics } from '@next/third-parties/google';
-import GAListener from './ga-tracker';
-import Loglib from "@loglib/tracker/react";
+import './globals.css'
+import { Poppins } from 'next/font/google'
+import { ThemeProvider } from 'next-themes'
+import { Analytics } from '@vercel/analytics/react'
+import type { Metadata, Viewport } from 'next'
 
 const poppins = Poppins({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700', '800'],
+  weight: ['300', '400', '500', '600', '700'],
   variable: '--font-poppins',
-});
+  display: 'swap',
+})
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export const metadata: Metadata = {
+  title: 'Abenet Wolde | Software Engineer',
+  description: 'Portfolio of Abenet Wolde - Full Stack Developer specializing in React, Next.js, Flutter, and Node.js',
+  keywords: ['Software Engineer', 'Full Stack Developer', 'React', 'Next.js', 'Flutter', 'Node.js'],
+  authors: [{ name: 'Abenet Wolde' }],
+  openGraph: {
+    title: 'Abenet Wolde | Software Engineer',
+    description: 'Full Stack Developer specializing in React, Next.js, Flutter, and Node.js',
+    type: 'website',
+  },
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#fafafa' },
+    { media: '(prefers-color-scheme: dark)', color: '#0a0a0a' },
+  ],
+}
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <html lang="en">
-      <head />
-      <ThemeProvider attribute="class" defaultTheme="light">
-        <body className={`${poppins.className} font-poppins bg-gray-100/50 dark:bg-grey-900 text-black dark:text-white overflow-x-hidden`}>
-          {/* <Script
-            async
-            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID }`}
-          /> */}
-     {/* <Script
-          id="google-analytics"
-          strategy="afterInteractive"
-            dangerouslySetInnerHTML={{
-              __html: `
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', {
-                  page_path: window.location.pathname,
-                });
-              `,
-            }}
-        /> */}
-          {/* <noscript>
-            <iframe
-              src={`https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_PUBLIC_GA_ID || 'G-ECDEKL29XG'}`}
-              height="0"
-              width="0"
-              style={{ display: "none", visibility: "hidden" }}
-            />
-          </noscript> */}
-            {/* <GAListener /> */}
+    <html lang="en" className="bg-background" suppressHydrationWarning>
+      <body className={`${poppins.className} font-sans antialiased`}>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           {children}
-               <Loglib
-       config={{
-                    id: "securitysystems",
-                }}
-            />
           <Analytics />
-        </body>
-      </ThemeProvider>
+        </ThemeProvider>
+      </body>
     </html>
-  );
+  )
 }
