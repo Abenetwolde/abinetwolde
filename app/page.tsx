@@ -8,7 +8,7 @@ import { ExperienceSection } from '@/components/experience'
 import { Contact } from '@/components/contact'
 import { Footer } from '@/components/footer'
 
-// Enable ISR with revalidation every hour for static portfolio data
+// Enable ISR with revalidation every hour
 export const revalidate = 3600
 
 export default async function HomePage() {

@@ -1,13 +1,11 @@
 import './globals.css'
-import { Poppins } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import { ThemeProvider } from 'next-themes'
 import { Analytics } from '@vercel/analytics/react'
 import type { Metadata, Viewport } from 'next'
 
-const poppins = Poppins({
+const inter = Inter({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-poppins',
   display: 'swap',
 })
 
@@ -39,8 +37,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="bg-background" suppressHydrationWarning>
-      <body className={`${poppins.className} font-sans antialiased`}>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+      <body className={`${inter.className} antialiased`}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           {children}
           <Analytics />
         </ThemeProvider>
