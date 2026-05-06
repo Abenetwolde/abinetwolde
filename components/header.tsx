@@ -7,12 +7,15 @@ import { Menu, X, Sun, Moon } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const navItems = [
-  { href: '#home', label: 'Home' },
-  { href: '#about', label: 'About' },
-  { href: '#skills', label: 'Skills' },
-  { href: '#projects', label: 'Projects' },
-  { href: '#experience', label: 'Experience' },
-  { href: '#contact', label: 'Contact' },
+  { href: '/', label: 'Home' },
+  { href: '/#about', label: 'About' },
+  { href: '/skills', label: 'Skills' },
+  { href: '/recent-works', label: 'Recent Work' },
+  { href: '/projects', label: 'Personal Projects' },
+  { href: '/experience', label: 'Experience' },
+  { href: '/education', label: 'Education' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/contact', label: 'Contact' },
 ]
 
 export function Header() {
@@ -42,7 +45,7 @@ export function Header() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
         {/* Logo */}
         <Link
-          href="#home"
+          href="/"
           className="text-xl font-bold text-foreground transition-colors hover:text-primary"
         >
           AW

@@ -16,7 +16,7 @@ export function Footer({ name, socials }: FooterProps) {
         <div className="flex flex-col items-center gap-6">
           {/* Logo */}
           <Link
-            href="#home"
+            href="/"
             className="text-2xl font-bold text-foreground transition-colors hover:text-primary"
           >
             {name.split(' ').map(n => n[0]).join('')}

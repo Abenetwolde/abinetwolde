@@ -3,11 +3,13 @@
 import { useState } from "react"
 import { updateAbout } from "@/lib/actions"
 import { ImageUpload } from "./image-upload"
+import { FileUpload } from "./file-upload"
 import { Loader2, Save } from "lucide-react"
 import type { About } from "@/lib/types"
 
 export function AboutForm({ about }: { about: About | null }) {
   const [aboutImage, setAboutImage] = useState(about?.about_image || "")
+  const [cvUrl, setCvUrl] = useState(about?.cv_url || "")
   const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState<{ type: "success" | "error"; text: string } | null>(null)
 
@@ -15,7 +17,8 @@ export function AboutForm({ about }: { about: About | null }) {
     setLoading(true)
     setMessage(null)
     formData.set("about_image", aboutImage)
-    
+    formData.set("cv_url", cvUrl)
+
     try {
       await updateAbout(formData)
       setMessage({ type: "success", text: "About section updated successfully!" })
@@ -30,8 +33,8 @@ export function AboutForm({ about }: { about: About | null }) {
     <form action={handleSubmit} className="space-y-6">
       {message && (
         <div className={`px-4 py-3 rounded-lg text-sm ${
-          message.type === "success" 
-            ? "bg-green-500/10 border border-green-500/20 text-green-500" 
+          message.type === "success"
+            ? "bg-green-500/10 border border-green-500/20 text-green-500"
             : "bg-red-500/10 border border-red-500/20 text-red-500"
         }`}>
           {message.text}
@@ -83,7 +86,7 @@ export function AboutForm({ about }: { about: About | null }) {
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm font-medium text-foreground">Call/Schedule URL</label>
+          <label className="text-sm font-medium text-foreground">Call / Schedule URL</label>
           <input
             name="call_url"
             type="url"
@@ -94,6 +97,23 @@ export function AboutForm({ about }: { about: About | null }) {
         </div>
       </div>
 
+      {/* CV Upload */}
+      <div className="space-y-2">
+        <label className="text-sm font-medium text-foreground">CV / Resume File</label>
+        <p className="text-xs text-muted-foreground">
+          Upload your CV as a PDF. It will appear as a "Download CV" button on your portfolio.
+        </p>
+        <FileUpload
+          value={cvUrl}
+          onChange={setCvUrl}
+          folder="cv"
+          accept=".pdf,.doc,.docx"
+          label="Click to upload your CV"
+          maxSizeMB={10}
+        />
+      </div>
+
+      {/* About Image */}
       <div className="space-y-2">
         <label className="text-sm font-medium text-foreground">About Image</label>
         <ImageUpload value={aboutImage} onChange={setAboutImage} folder="about" />

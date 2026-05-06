@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { ExternalLink, Phone } from 'lucide-react'
+import { ExternalLink, Phone, Download } from 'lucide-react'
 import { Section } from './ui/section'
 import type { About as AboutType, Profile } from '@/lib/types'
 
@@ -10,7 +10,7 @@ interface AboutProps {
 }
 
 export function About({ about, profile }: AboutProps) {
-  const { about_image, about_image_caption, about: aboutText, resume_url, call_url } = about
+  const { about_image, about_image_caption, about: aboutText, resume_url, call_url, cv_url } = about
 
   return (
     <Section id="about" className="bg-muted/30 py-20 lg:py-32">
@@ -45,12 +45,24 @@ export function About({ about, profile }: AboutProps) {
             </p>
 
             <div className="flex flex-wrap items-center gap-4">
+              {cv_url && (
+                <a
+                  href={cv_url}
+                  download
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+                >
+                  <Download className="h-4 w-4" />
+                  Download CV
+                </a>
+              )}
               {resume_url && (
                 <Link
                   href={resume_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+                  className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-6 py-3 text-sm font-medium text-foreground transition-colors hover:bg-accent"
                 >
                   Resume
                   <ExternalLink className="h-4 w-4" />

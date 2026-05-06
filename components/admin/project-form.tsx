@@ -13,6 +13,8 @@ const categories = ["web", "mobile", "bot", "other"]
 export function ProjectForm({ project }: { project?: Project }) {
   const router = useRouter()
   const [images, setImages] = useState<string[]>(project?.images || [])
+  const [features, setFeatures] = useState<string[]>(project?.features || [])
+  const [featureInput, setFeatureInput] = useState("")
   const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState<{ type: "success" | "error"; text: string } | null>(null)
   const [showImageUpload, setShowImageUpload] = useState(false)
@@ -26,10 +28,23 @@ export function ProjectForm({ project }: { project?: Project }) {
     setImages(images.filter((_, i) => i !== index))
   }
 
+  function addFeature() {
+    const trimmed = featureInput.trim()
+    if (trimmed && !features.includes(trimmed)) {
+      setFeatures([...features, trimmed])
+      setFeatureInput("")
+    }
+  }
+
+  function removeFeature(index: number) {
+    setFeatures(features.filter((_, i) => i !== index))
+  }
+
   async function handleSubmit(formData: FormData) {
     setLoading(true)
     setMessage(null)
     formData.set("images", JSON.stringify(images))
+    formData.set("features", JSON.stringify(features))
     
     try {
       if (project) {
@@ -104,6 +119,46 @@ export function ProjectForm({ project }: { project?: Project }) {
           rows={4}
           className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none"
         />
+      </div>
+
+      {/* Features */}
+      <div className="space-y-3">
+        <label className="text-sm font-medium text-foreground">Features</label>
+        <p className="text-xs text-muted-foreground">Add key features — each will appear as a bullet point on your portfolio.</p>
+        <div className="flex gap-2">
+          <input
+            type="text"
+            value={featureInput}
+            onChange={(e) => setFeatureInput(e.target.value)}
+            onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); addFeature() } }}
+            placeholder="e.g. Real-time notifications"
+            className="flex-1 px-4 py-2 bg-background border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/50"
+          />
+          <button
+            type="button"
+            onClick={addFeature}
+            className="px-4 py-2 bg-primary text-primary-foreground rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors"
+          >
+            <Plus className="w-4 h-4" />
+          </button>
+        </div>
+        {features.length > 0 && (
+          <ul className="space-y-2">
+            {features.map((feature, i) => (
+              <li key={i} className="flex items-center gap-2 rounded-lg bg-muted px-3 py-2 text-sm">
+                <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                <span className="flex-1 text-foreground">{feature}</span>
+                <button
+                  type="button"
+                  onClick={() => removeFeature(i)}
+                  className="text-muted-foreground hover:text-red-500 transition-colors"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

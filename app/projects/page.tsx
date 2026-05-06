@@ -1,0 +1,38 @@
+import { getProjects, getProfile, getPortfolioData } from '@/lib/data'
+import { Header } from '@/components/header'
+import { Projects } from '@/components/projects'
+import { Footer } from '@/components/footer'
+
+export const revalidate = 3600
+
+export const metadata = {
+  title: 'Projects',
+}
+
+export default async function ProjectsPage() {
+  const [projects, data] = await Promise.all([
+    getProjects(),
+    getPortfolioData(),
+  ])
+
+  const profile = data.profile || {
+    id: '1',
+    name: 'Abenet Wolde',
+    short_desc: null,
+    titles: [],
+    hero_image: null,
+    tech_stack_images: [],
+    created_at: '',
+    updated_at: '',
+  }
+
+  return (
+    <>
+      <Header />
+      <main className="pt-20">
+        <Projects projects={projects} />
+      </main>
+      <Footer name={profile.name} socials={data.socials} />
+    </>
+  )
+}

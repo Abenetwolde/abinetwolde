@@ -14,7 +14,10 @@ import {
   LogOut,
   ExternalLink,
   Menu,
-  X
+  X,
+  Award,
+  FileText,
+  Clock
 } from "lucide-react"
 import { useState } from "react"
 import type { User as SupabaseUser } from "@supabase/supabase-js"
@@ -22,10 +25,13 @@ import type { User as SupabaseUser } from "@supabase/supabase-js"
 const navItems = [
   { href: "/admin", label: "Dashboard", icon: LayoutDashboard },
   { href: "/admin/profile", label: "Profile & About", icon: User },
-  { href: "/admin/projects", label: "Projects", icon: FolderKanban },
+  { href: "/admin/recent-works", label: "Recent Work", icon: Clock },
+  { href: "/admin/projects", label: "Personal Projects", icon: FolderKanban },
   { href: "/admin/skills", label: "Skills", icon: Code2 },
   { href: "/admin/experience", label: "Experience", icon: Briefcase },
   { href: "/admin/education", label: "Education", icon: GraduationCap },
+  { href: "/admin/certifications", label: "Certifications", icon: Award },
+  { href: "/admin/blog", label: "Blog", icon: FileText },
   { href: "/admin/socials", label: "Social Links", icon: Share2 },
 ]
 

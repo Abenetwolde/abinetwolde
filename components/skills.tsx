@@ -24,9 +24,14 @@ export function Skills({ skills }: SkillsProps) {
   return (
     <Section id="skills" className="py-20 lg:py-32">
       <div className="mx-auto max-w-7xl px-4">
-        <h2 className="mb-12 text-center text-3xl font-bold text-foreground md:text-4xl">
-          Tech Stack
-        </h2>
+        <div className="mb-12 text-center">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+            Tools & Technologies
+          </p>
+          <h2 className="text-3xl font-bold text-foreground md:text-4xl">
+            Tech Stack
+          </h2>
+        </div>
 
         {/* Category Tabs */}
         <div className="mx-auto mb-10 flex max-w-xl flex-wrap justify-center gap-2 rounded-lg bg-card p-2">

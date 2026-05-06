@@ -2,7 +2,7 @@
 
 import { useState, useRef } from "react"
 import { createClient } from "@/lib/supabase/client"
-import { Upload, X, Loader2, ImageIcon } from "lucide-react"
+import { X, Loader2, ImageIcon, CheckCircle2 } from "lucide-react"
 import Image from "next/image"
 
 interface ImageUploadProps {
@@ -15,6 +15,7 @@ interface ImageUploadProps {
 export function ImageUpload({ value, onChange, folder = "uploads", className = "" }: ImageUploadProps) {
   const [uploading, setUploading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [justUploaded, setJustUploaded] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
   const supabase = createClient()
 
@@ -22,13 +23,11 @@ export function ImageUpload({ value, onChange, folder = "uploads", className = "
     const file = e.target.files?.[0]
     if (!file) return
 
-    // Validate file type
     if (!file.type.startsWith("image/")) {
       setError("Please select an image file")
       return
     }
 
-    // Validate file size (max 5MB)
     if (file.size > 5 * 1024 * 1024) {
       setError("Image must be less than 5MB")
       return
@@ -36,6 +35,7 @@ export function ImageUpload({ value, onChange, folder = "uploads", className = "
 
     setUploading(true)
     setError(null)
+    setJustUploaded(false)
 
     try {
       const fileExt = file.name.split(".").pop()
@@ -53,6 +53,8 @@ export function ImageUpload({ value, onChange, folder = "uploads", className = "
         .getPublicUrl(filePath)
 
       onChange(publicUrl)
+      setJustUploaded(true)
+      setTimeout(() => setJustUploaded(false), 3000)
     } catch (err) {
       setError(err instanceof Error ? err.message : "Upload failed")
     } finally {
@@ -63,6 +65,8 @@ export function ImageUpload({ value, onChange, folder = "uploads", className = "
 
   function handleRemove() {
     onChange("")
+    setJustUploaded(false)
+    setError(null)
   }
 
   return (
@@ -76,41 +80,60 @@ export function ImageUpload({ value, onChange, folder = "uploads", className = "
       />
 
       {value ? (
-        <div className="relative group">
-          <div className="relative w-full h-40 rounded-lg overflow-hidden border border-border">
-            <Image
-              src={value}
-              alt="Uploaded image"
-              fill
-              className="object-cover"
-            />
+        <div className="space-y-2">
+          {/* Preview */}
+          <div className="relative group rounded-xl overflow-hidden border border-border bg-muted">
+            <div className="relative w-full h-48">
+              <Image
+                src={value}
+                alt="Uploaded image preview"
+                fill
+                className="object-contain"
+                unoptimized
+              />
+            </div>
+
+            {/* Success badge */}
+            {justUploaded && (
+              <div className="absolute top-2 left-2 flex items-center gap-1.5 rounded-full bg-green-500 px-3 py-1 text-xs font-medium text-white shadow">
+                <CheckCircle2 className="w-3.5 h-3.5" />
+                Uploaded!
+              </div>
+            )}
+
+            {/* Hover actions */}
+            <div className="absolute inset-0 flex items-end justify-between p-3 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+              <button
+                type="button"
+                onClick={() => inputRef.current?.click()}
+                disabled={uploading}
+                className="px-3 py-1.5 bg-white text-black text-xs font-medium rounded-lg hover:bg-primary hover:text-white transition-colors disabled:opacity-50"
+              >
+                Replace
+              </button>
+              <button
+                type="button"
+                onClick={handleRemove}
+                className="p-1.5 bg-red-500 text-white rounded-full hover:bg-red-600 transition-colors"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
           </div>
-          <button
-            type="button"
-            onClick={handleRemove}
-            className="absolute top-2 right-2 p-1.5 bg-red-500 text-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
-          >
-            <X className="w-4 h-4" />
-          </button>
-          <button
-            type="button"
-            onClick={() => inputRef.current?.click()}
-            disabled={uploading}
-            className="absolute bottom-2 right-2 px-3 py-1.5 bg-black/70 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"
-          >
-            Replace
-          </button>
+
+          {/* URL display */}
+          <p className="text-xs text-muted-foreground truncate px-1">{value}</p>
         </div>
       ) : (
         <button
           type="button"
           onClick={() => inputRef.current?.click()}
           disabled={uploading}
-          className="w-full h-40 border-2 border-dashed border-border rounded-lg flex flex-col items-center justify-center gap-2 hover:border-primary/50 hover:bg-muted/50 transition-colors disabled:opacity-50"
+          className="w-full h-40 border-2 border-dashed border-border rounded-xl flex flex-col items-center justify-center gap-2 hover:border-primary/50 hover:bg-muted/50 transition-colors disabled:opacity-50"
         >
           {uploading ? (
             <>
-              <Loader2 className="w-8 h-8 text-muted-foreground animate-spin" />
+              <Loader2 className="w-8 h-8 text-primary animate-spin" />
               <span className="text-sm text-muted-foreground">Uploading...</span>
             </>
           ) : (
@@ -118,15 +141,17 @@ export function ImageUpload({ value, onChange, folder = "uploads", className = "
               <div className="p-3 bg-muted rounded-full">
                 <ImageIcon className="w-6 h-6 text-muted-foreground" />
               </div>
-              <span className="text-sm text-muted-foreground">Click to upload image</span>
-              <span className="text-xs text-muted-foreground">Max 5MB</span>
+              <span className="text-sm font-medium text-foreground">Click to upload image</span>
+              <span className="text-xs text-muted-foreground">PNG, JPG, GIF up to 5MB</span>
             </>
           )}
         </button>
       )}
 
       {error && (
-        <p className="mt-2 text-sm text-red-500">{error}</p>
+        <p className="mt-2 text-sm text-red-500 flex items-center gap-1.5">
+          <X className="w-4 h-4" /> {error}
+        </p>
       )}
     </div>
   )

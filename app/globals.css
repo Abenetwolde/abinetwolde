@@ -8,16 +8,16 @@
     --foreground: 0 0% 9%;
     --card: 0 0% 100%;
     --card-foreground: 0 0% 9%;
-    --primary: 330 81% 50%;
+    --primary: 217 91% 50%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 263 70% 58%;
+    --secondary: 217 80% 40%;
     --secondary-foreground: 0 0% 100%;
     --muted: 0 0% 96%;
     --muted-foreground: 0 0% 45%;
-    --accent: 220 14% 96%;
+    --accent: 217 30% 94%;
     --accent-foreground: 0 0% 9%;
     --border: 0 0% 90%;
-    --ring: 330 81% 50%;
+    --ring: 217 91% 50%;
     --radius: 0.5rem;
   }
 
@@ -26,16 +26,16 @@
     --foreground: 0 0% 98%;
     --card: 0 0% 9%;
     --card-foreground: 0 0% 98%;
-    --primary: 330 81% 60%;
+    --primary: 217 91% 60%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 263 70% 68%;
+    --secondary: 217 80% 50%;
     --secondary-foreground: 0 0% 100%;
     --muted: 0 0% 15%;
     --muted-foreground: 0 0% 64%;
-    --accent: 0 0% 15%;
+    --accent: 217 20% 15%;
     --accent-foreground: 0 0% 98%;
     --border: 0 0% 15%;
-    --ring: 330 81% 60%;
+    --ring: 217 91% 60%;
   }
 }
 
@@ -66,25 +66,36 @@
   }
 }
 
-/* Custom animations */
+/* ============================================================
+   Custom animations
+   ============================================================ */
+
 @keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes blink {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* Blinking cursor for hero accent line */
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/*
+  Seamless horizontal marquee.
+  The animated element contains TWO identical sets of cards side by side,
+  so its total width = 2 × one-set-width.
+  Translating by -50% moves exactly one full set off-screen,
+  then the animation resets to 0 — creating a perfect seamless loop.
+*/
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 .animate-fade-in {
@@ -95,9 +106,19 @@
   animation: blink 1s steps(2, start) infinite;
 }
 
+.animate-blink-cursor {
+  animation: blink-cursor 1.1s step-start infinite;
+}
+
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-fade-in,
-  .animate-cursor {
+  .animate-cursor,
+  .animate-blink-cursor,
+  .animate-marquee {
     animation: none !important;
   }
 }

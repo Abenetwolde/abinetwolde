@@ -4,9 +4,31 @@ export interface Profile {
   id: string
   name: string
   short_desc: string | null
+  hero_headline: string | null
+  hero_subtitle: string | null
+  hero_stats: { label: string; value: string }[]
   titles: string[]
   hero_image: string | null
   tech_stack_images: string[]
+  created_at: string
+  updated_at: string
+}
+
+export interface RecentWork {
+  id: string
+  profile_id: string
+  name: string
+  role: string
+  short_description: string | null
+  key_achievement: string | null
+  techstack: string | null
+  category: string | null
+  image: string | null
+  images: string[]
+  link_visit: string | null
+  link_code: string | null
+  link_video: string | null
+  display_order: number
   created_at: string
   updated_at: string
 }
@@ -20,6 +42,7 @@ export interface About {
   about: string | null
   resume_url: string | null
   call_url: string | null
+  cv_url: string | null
   created_at: string
   updated_at: string
 }
@@ -52,6 +75,7 @@ export interface Project {
   description: string | null
   blog: string | null
   images: string[]
+  features: string[]
   link_visit: string | null
   link_code: string | null
   link_video: string | null
@@ -90,6 +114,40 @@ export interface PortfolioData {
   socials: Social[]
   skills: Skill[]
   projects: Project[]
+  recentWorks: RecentWork[]
   experiences: Experience[]
   educations: Education[]
+  certifications: Certification[]
+  blogs: Blog[]
+}
+
+export interface Certification {
+  id: string
+  profile_id: string
+  title: string
+  issuer: string
+  issued_date: string | null
+  address: string | null
+  type: string | null
+  image: string | null
+  credential_url: string | null
+  description: string[]
+  display_order: number
+  created_at: string
+}
+
+export interface Blog {
+  id: string
+  profile_id: string
+  title: string
+  slug: string | null
+  summary: string | null
+  content: string | null
+  cover_image: string | null
+  tags: string[]
+  url: string | null
+  published_at: string | null
+  display_order: number
+  created_at: string
+  updated_at: string
 }
