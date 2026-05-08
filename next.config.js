@@ -10,12 +10,6 @@ const nextConfig = {
   // Strict mode for better React performance
   reactStrictMode: true,
 
-  // Experimental optimizations
-  experimental: {
-    // Optimize package imports — tree-shake large icon/component libraries
-    optimizePackageImports: ['lucide-react', '@supabase/supabase-js', '@supabase/ssr'],
-  },
-
   images: {
     // Use modern formats for better compression
     formats: ['image/avif', 'image/webp'],

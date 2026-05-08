@@ -29,7 +29,7 @@ export function Skills({ skills }: SkillsProps) {
             Tools & Technologies
           </p>
           <h2 className="text-3xl font-bold text-foreground md:text-4xl">
-            Tech Stack
+            Other Tools & Skills
           </h2>
         </div>
 

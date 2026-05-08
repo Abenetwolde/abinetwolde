@@ -8,7 +8,7 @@ const PROFILE_ID = "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
 // Helper — bust all portfolio caches after any mutation
 function revalidatePortfolio() {
   revalidateTag('portfolio')
-  revalidatePortfolio()
+  revalidatePath('/')
 }
 
 // Profile Actions
@@ -27,6 +27,8 @@ export async function updateProfile(formData: FormData) {
       hero_headline: formData.get("hero_headline") as string || null,
       hero_subtitle: formData.get("hero_subtitle") as string || null,
       hero_stats: heroStats,
+      availability: formData.get("availability") as string || 'available',
+      availability_label: formData.get("availability_label") as string || null,
       titles: (formData.get("titles") as string).split(",").map(t => t.trim()).filter(Boolean),
       hero_image: formData.get("hero_image") as string,
       updated_at: new Date().toISOString(),
@@ -71,6 +73,7 @@ export async function createProject(formData: FormData) {
       category: formData.get("category") as string,
       description: formData.get("description") as string,
       features: JSON.parse(formData.get("features") as string || "[]"),
+      cover_image: formData.get("cover_image") as string || null,
       images: JSON.parse(formData.get("images") as string || "[]"),
       link_visit: formData.get("link_visit") as string || null,
       link_code: formData.get("link_code") as string || null,
@@ -93,6 +96,7 @@ export async function updateProject(id: string, formData: FormData) {
       category: formData.get("category") as string,
       description: formData.get("description") as string,
       features: JSON.parse(formData.get("features") as string || "[]"),
+      cover_image: formData.get("cover_image") as string || null,
       images: JSON.parse(formData.get("images") as string || "[]"),
       link_visit: formData.get("link_visit") as string || null,
       link_code: formData.get("link_code") as string || null,

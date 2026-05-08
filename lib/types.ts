@@ -7,6 +7,8 @@ export interface Profile {
   hero_headline: string | null
   hero_subtitle: string | null
   hero_stats: { label: string; value: string }[]
+  availability: string | null
+  availability_label: string | null
   titles: string[]
   hero_image: string | null
   tech_stack_images: string[]
@@ -74,6 +76,7 @@ export interface Project {
   category: string | null
   description: string | null
   blog: string | null
+  cover_image: string | null
   images: string[]
   features: string[]
   link_visit: string | null

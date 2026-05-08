@@ -14,28 +14,33 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Abenet Wolde | Software Engineer',
-    template: '%s | Abenet Wolde',
+    default: 'Abinet Wolde | Software Engineer',
+    template: '%s | Abinet Wolde',
   },
   description: 'Software Engineer specializing in full-stack development, mobile apps, and scalable backend systems.',
-  keywords: ['Software Engineer', 'Full Stack Developer', 'React', 'Next.js', 'Flutter', 'Node.js', 'Abenet Wolde'],
-  authors: [{ name: 'Abenet Wolde' }],
-  creator: 'Abenet Wolde',
+  keywords: ['Software Engineer', 'Full Stack Developer', 'React', 'Next.js', 'Flutter', 'Node.js', 'Abinet Wolde', 'Ethiopia'],
+  authors: [{ name: 'Abinet Wolde' }],
+  creator: 'Abinet Wolde',
   robots: {
     index: true,
     follow: true,
-    googleBot: { index: true, follow: true },
+    googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 },
   },
   openGraph: {
-    title: 'Abenet Wolde | Software Engineer',
+    title: 'Abinet Wolde | Software Engineer',
     description: 'Software Engineer specializing in full-stack development, mobile apps, and scalable backend systems.',
     type: 'website',
     locale: 'en_US',
+    siteName: 'Abinet Wolde',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Abenet Wolde | Software Engineer',
+    title: 'Abinet Wolde | Software Engineer',
     description: 'Software Engineer specializing in full-stack development, mobile apps, and scalable backend systems.',
+    creator: '@abinetwolde',
+  },
+  alternates: {
+    canonical: 'https://abinetwolde.com',
   },
 }
 

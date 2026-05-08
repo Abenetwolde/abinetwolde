@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { Calendar, Tag, ArrowRight } from 'lucide-react'
+import { Calendar, Tag, ArrowRight, ExternalLink } from 'lucide-react'
 import { Section } from './ui/section'
 import type { Blog } from '@/lib/types'
 
@@ -76,9 +76,22 @@ export function BlogSection({ blogs }: BlogProps) {
                         {post.published_at}
                       </span>
                     )}
-                    <span className="inline-flex items-center gap-1 text-sm font-medium text-primary">
-                      Read More <ArrowRight className="h-3.5 w-3.5" />
-                    </span>
+                    <div className="flex items-center gap-3">
+                      {post.url && (
+                        <a
+                          href={post.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-primary transition-colors"
+                        >
+                          <ExternalLink className="h-3 w-3" />
+                          Source
+                        </a>
+                      )}
+                      <span className="inline-flex items-center gap-1 text-sm font-medium text-primary">
+                        Read More <ArrowRight className="h-3.5 w-3.5" />
+                      </span>
+                    </div>
                   </div>
                 </div>
               </Link>

@@ -18,11 +18,13 @@ export const revalidate = 3600
 // Fallback profile used when DB is empty
 const FALLBACK_PROFILE = {
   id: '1',
-  name: 'Abenet Wolde',
+  name: 'Abinet Wolde',
   short_desc: 'I design and build software that solves real problems — from mobile apps to scalable backend systems.',
   hero_headline: 'Software engineer building things that matter',
   hero_subtitle: 'from idea to production',
   hero_stats: [] as { label: string; value: string }[],
+  availability: 'available',
+  availability_label: '1 project at a time',
   titles: ['Software Engineer', 'Full Stack Developer', 'Mobile App Developer'],
   hero_image: '/me2.png',
   tech_stack_images: [] as string[],

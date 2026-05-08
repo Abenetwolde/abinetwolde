@@ -7,14 +7,9 @@ import { Menu, X, Sun, Moon } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const navItems = [
-  { href: '/', label: 'Home' },
-  { href: '/#about', label: 'About' },
-  { href: '/skills', label: 'Skills' },
   { href: '/recent-works', label: 'Recent Work' },
   { href: '/projects', label: 'Personal Projects' },
   { href: '/experience', label: 'Experience' },
-  { href: '/education', label: 'Education' },
-  { href: '/blog', label: 'Blog' },
   { href: '/contact', label: 'Contact' },
 ]
 

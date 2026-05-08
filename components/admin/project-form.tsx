@@ -13,6 +13,7 @@ const categories = ["web", "mobile", "bot", "other"]
 export function ProjectForm({ project }: { project?: Project }) {
   const router = useRouter()
   const [images, setImages] = useState<string[]>(project?.images || [])
+  const [coverImage, setCoverImage] = useState(project?.cover_image || '')
   const [features, setFeatures] = useState<string[]>(project?.features || [])
   const [featureInput, setFeatureInput] = useState("")
   const [loading, setLoading] = useState(false)
@@ -45,6 +46,7 @@ export function ProjectForm({ project }: { project?: Project }) {
     setMessage(null)
     formData.set("images", JSON.stringify(images))
     formData.set("features", JSON.stringify(features))
+    formData.set("cover_image", coverImage)
     
     try {
       if (project) {
@@ -119,6 +121,12 @@ export function ProjectForm({ project }: { project?: Project }) {
           rows={4}
           className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none"
         />
+      </div>
+
+      {/* Cover Image */}
+      <div className="space-y-2">
+        <label className="text-sm font-medium text-foreground">Cover Image <span className="text-muted-foreground font-normal">(shown as card thumbnail)</span></label>
+        <ImageUpload value={coverImage} onChange={setCoverImage} folder="projects/covers" />
       </div>
 
       {/* Features */}
