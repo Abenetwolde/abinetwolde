@@ -41,9 +41,9 @@ export function Header() {
         {/* Logo */}
         <Link
           href="/"
-          className="text-xl font-bold text-foreground transition-colors hover:text-primary"
+          className="font-mono text-[11px] font-semibold tracking-tight text-foreground transition-colors hover:text-primary"
         >
-          AW
+          abinetwolde.dev
         </Link>
 
         {/* Desktop Navigation */}

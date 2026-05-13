@@ -66,31 +66,38 @@ export function Hero({ profile, socials }: HeroProps) {
           </p>
         )}
 
-        {/* CTA buttons */}
-        <div className="mb-12 flex flex-wrap items-center gap-3">
+        {/* CTA buttons — always on same row, even on mobile */}
+        <div className="mb-12 flex flex-row items-center gap-3">
           <Link
             href="/recent-works"
-            className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+            className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90 sm:px-6 sm:py-3"
           >
             See recent work
             <ArrowRight className="h-4 w-4" />
           </Link>
           <Link
             href="/projects"
-            className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-6 py-3 text-sm font-medium text-foreground transition-colors hover:bg-accent"
+            className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-4 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-accent sm:px-6 sm:py-3"
           >
-            Personal Projects
+            My Projects
           </Link>
         </div>
 
-        {/* Scrolling stat cards */}
+        {/* Stat cards — auto-scroll on desktop, touch-swipeable on mobile */}
         {hero_stats && hero_stats.length > 0 && (
-          <div className="relative overflow-hidden">
-            <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-16 bg-gradient-to-r from-background to-transparent" />
-            <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 bg-gradient-to-l from-background to-transparent" />
-            <div className="group flex w-max animate-marquee gap-3 hover:[animation-play-state:paused]">
-              {hero_stats.map((stat, i) => <StatCard key={`a-${i}`} stat={stat} />)}
-              {hero_stats.map((stat, i) => <StatCard key={`b-${i}`} stat={stat} />)}
+          <div className="relative">
+            {/* Desktop: fade edges + marquee animation */}
+            <div className="hidden sm:block relative overflow-hidden">
+              <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-16 bg-gradient-to-r from-background to-transparent" />
+              <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 bg-gradient-to-l from-background to-transparent" />
+              <div className="group flex w-max animate-marquee gap-3 hover:[animation-play-state:paused]">
+                {hero_stats.map((stat, i) => <StatCard key={`a-${i}`} stat={stat} />)}
+                {hero_stats.map((stat, i) => <StatCard key={`b-${i}`} stat={stat} />)}
+              </div>
+            </div>
+            {/* Mobile: native horizontal scroll (touch-swipeable) */}
+            <div className="flex sm:hidden gap-3 overflow-x-auto pb-2 scrollbar-hide" style={{ WebkitOverflowScrolling: 'touch' }}>
+              {hero_stats.map((stat, i) => <StatCard key={i} stat={stat} />)}
             </div>
           </div>
         )}

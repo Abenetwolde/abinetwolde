@@ -68,7 +68,7 @@ export function Contact({ socials }: ContactProps) {
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground">Email</h3>
-                  <p className="text-muted-foreground">abenetwolde@gmail.com</p>
+                  <p className="text-muted-foreground">abnetwoldedev@gmail.com</p>
                 </div>
               </div>
 

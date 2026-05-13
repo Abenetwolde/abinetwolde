@@ -116,20 +116,25 @@ export function Projects({ projects }: ProjectsProps) {
 // ---------------------------------------------------------------------------
 
 function ProjectCard({ project, onSelect }: { project: Project; onSelect: (p: Project) => void }) {
-  const { name, images, techstack, description } = project
+  const { name, images, cover_image, techstack, description } = project
+  // Use cover_image as thumbnail if set, otherwise fall back to first image
+  const thumbnail = cover_image || (images && images.length > 0 ? images[0] : null)
+
   return (
     <article
       className="group cursor-pointer overflow-hidden rounded-xl bg-card shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
       onClick={() => onSelect(project)}
     >
       <div className="relative aspect-video overflow-hidden bg-muted">
-        {images && images.length > 0 ? (
+        {thumbnail ? (
           <Image
-            src={images[0]}
+            src={thumbnail}
             alt={name}
             fill
             className="object-cover transition-transform group-hover:scale-105"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            loading="lazy"
+            placeholder="empty"
           />
         ) : (
           <div className="flex h-full items-center justify-center text-4xl font-bold text-muted-foreground/30">

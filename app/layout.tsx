@@ -64,6 +64,7 @@ export default function RootLayout({
         {/* Preconnect to Supabase for faster API/image requests */}
         <link rel="preconnect" href="https://zfievjxkmubnokerecys.supabase.co" />
         <link rel="dns-prefetch" href="https://zfievjxkmubnokerecys.supabase.co" />
+        <script defer src="https://cloud.umami.is/script.js" data-website-id="9c9d3695-014b-4e0a-bf82-49d68be54330"></script>
       </head>
       <body className={`${inter.className} antialiased`}>
         <ThemeProvider

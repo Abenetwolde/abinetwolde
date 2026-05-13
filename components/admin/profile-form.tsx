@@ -111,30 +111,6 @@ export function ProfileForm({ profile }: { profile: Profile | null }) {
         />
       </div>
 
-      {/* Availability */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="space-y-2">
-          <label className="text-sm font-medium text-foreground">Availability Status</label>
-          <select
-            value={availability}
-            onChange={e => setAvailability(e.target.value)}
-            className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50"
-          >
-            <option value="available">Available</option>
-            <option value="unavailable">Unavailable</option>
-          </select>
-        </div>
-        <div className="space-y-2">
-          <label className="text-sm font-medium text-foreground">Availability Label <span className="text-muted-foreground font-normal">(e.g. "1 project at a time")</span></label>
-          <input
-            name="availability_label"
-            defaultValue={profile?.availability_label || ""}
-            placeholder="1 project at a time"
-            className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50"
-          />
-        </div>
-      </div>
-
       {/* Stat cards */}
       <div className="space-y-3">
         <div className="flex items-center justify-between">

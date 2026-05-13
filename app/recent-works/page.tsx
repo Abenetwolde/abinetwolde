@@ -3,7 +3,7 @@ import { Header } from '@/components/header'
 import { RecentWorks } from '@/components/recent-works'
 import { Footer } from '@/components/footer'
 
-export const revalidate = 3600
+export const revalidate = 0 // Always fresh — reorder should reflect immediately
 
 export const metadata = {
   title: 'Recent Work',

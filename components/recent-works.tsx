@@ -11,7 +11,9 @@ import type { RecentWork } from '@/lib/types'
 
 export function RecentWorks({ works }: { works: RecentWork[] }) {
   const [showAll, setShowAll] = useState(false)
-  const displayed = showAll ? works : works.slice(0, 3)
+  // Sort by display_order on the portfolio side
+  const sorted = [...works].sort((a, b) => a.display_order - b.display_order)
+  const displayed = showAll ? sorted : sorted.slice(0, 3)
 
   if (works.length === 0) return null
 

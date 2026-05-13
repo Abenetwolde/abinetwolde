@@ -15,7 +15,7 @@ const nextConfig = {
     formats: ['image/avif', 'image/webp'],
 
     // Aggressive caching — images don't change often
-    minimumCacheTTL: 86400, // 24 hours
+    minimumCacheTTL: 604800, // 7 days (was 24h)
 
     // Reasonable device sizes
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],

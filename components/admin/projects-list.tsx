@@ -36,10 +36,11 @@ export function ProjectsList({ projects }: { projects: Project[] }) {
           key={project.id}
           className="bg-card border border-border rounded-xl p-4 flex items-center gap-4"
         >
-          {project.images?.[0] && (
+          {/* Show cover_image first, fall back to first image */}
+          {(project.cover_image || project.images?.[0]) && (
             <div className="relative w-24 h-16 rounded-lg overflow-hidden flex-shrink-0">
               <Image
-                src={project.images[0]}
+                src={project.cover_image || project.images[0]}
                 alt={project.name}
                 fill
                 className="object-cover"

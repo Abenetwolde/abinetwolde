@@ -430,7 +430,6 @@ export async function createRecentWork(formData: FormData) {
   })
   if (error) throw new Error(error.message)
   revalidatePortfolio()
-  revalidatePortfolio()
 }
 
 export async function updateRecentWork(id: string, formData: FormData) {
@@ -452,7 +451,6 @@ export async function updateRecentWork(id: string, formData: FormData) {
   }).eq('id', id)
   if (error) throw new Error(error.message)
   revalidatePortfolio()
-  revalidatePortfolio()
 }
 
 export async function deleteRecentWork(id: string) {
@@ -460,5 +458,27 @@ export async function deleteRecentWork(id: string) {
   const { error } = await supabase.from('recent_works').delete().eq('id', id)
   if (error) throw new Error(error.message)
   revalidatePortfolio()
-  revalidatePortfolio()
+}
+
+export async function reorderRecentWork(id: string, displayOrder: number) {
+  const supabase = await createClient()
+  const { error } = await supabase
+    .from('recent_works')
+    .update({ display_order: displayOrder })
+    .eq('id', id)
+  if (error) throw new Error(error.message)
+  revalidateTag('portfolio')
+  revalidatePath('/')
+  revalidatePath('/recent-works')
+}
+
+export async function reorderCertification(id: string, displayOrder: number) {
+  const supabase = await createClient()
+  const { error } = await supabase
+    .from('certifications')
+    .update({ display_order: displayOrder })
+    .eq('id', id)
+  if (error) throw new Error(error.message)
+  revalidateTag('portfolio')
+  revalidatePath('/')
 }
